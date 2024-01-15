@@ -17,7 +17,7 @@ class AccessCodeController extends Controller
         $storedCode = config('app.access_code');
 
         if ($inputCode === $storedCode) {
-            return redirect('/welcome');
+            return redirect('/accueil');
         } else {
             return back()->withErrors(['access_code' => 'Invalid access code']);
         }
