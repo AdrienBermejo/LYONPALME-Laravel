@@ -21,7 +21,6 @@
                             name="password"
                             required autocomplete="current-password"
                             placeholder="Entrez votre Mot de passe"/>
-
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
