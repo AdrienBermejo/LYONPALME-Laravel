@@ -67,6 +67,21 @@ header {
     position: relative;
 }
 
+.menu li a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0.2em;
+    background: #DC143C;
+    transition: width 500ms ease;
+}
+
+.menu li a:hover:after {
+    width: 100%;
+}
+
 .auth {
     display: flex;
     margin-left: auto;
