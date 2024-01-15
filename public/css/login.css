@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'folty'; /* Vous pouvez remplacer 'MaPolicePersonnalisee' par le nom que vous voulez donner à votre police */
+    src: url('fonts/folty-semi-bold.otf') format('opentype');
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    background: linear-gradient(120deg, #DC143C, white, #008000);
+}
+
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Your Font Family', sans-serif;
+}
+
+label, input {
+    margin: 10px 0;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+}
+
+input[type="password"] {
+    border-radius: 20px;
+    background-color: white; /* Fond blanc */
+    color: #DC143C; /* Texte framboise */
+    border: 2px solid #DC143C; /* Contour framboise */
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="password"]:focus {
+    outline: none; /* Enlève le contour par défaut lors du focus */
+    border: 2px solid #DC143C; /* Contour framboise lors du focus */
+}
+
+input[type="password"]::placeholder {
+    color: gray; /* Texte en gris */
+    font-size: 12px; /* Texte en petit */
+}
+
+input[type="email"]{
+    border-radius: 20px;
+    background-color: white; /* Fond blanc */
+    color: #DC143C; /* Texte framboise */
+    border: 2px solid #DC143C; /* Contour framboise */
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="email"]:focus {
+    outline: none; /* Enlève le contour par défaut lors du focus */
+    border: 2px solid #DC143C; /* Contour framboise lors du focus */
+}
+
+input[type="email"]::placeholder {
+    color: gray; /* Texte en gris */
+    font-size: 12px; /* Texte en petit */
+}
+
+
+
+
+img {
+    width: 50vh; /* Ajustez cette valeur selon la taille souhaitée */
+}
