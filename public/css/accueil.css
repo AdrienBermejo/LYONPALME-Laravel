@@ -136,3 +136,18 @@ header {
     background-color: #DC143C; /* Remplissage framboise au survol */
     color: white; /* Texte blanc au survol */
 }
+
+.product-slider .product {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-slider .product img {
+    max-width: 100%;
+    height: auto;
+}
+
