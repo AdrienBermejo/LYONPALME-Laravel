@@ -103,3 +103,36 @@ header {
     transform: scale(1.1); /* Agrandit le bouton de 10% */
 }
 
+.text-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh; /* Ajustez cette valeur en fonction de vos besoins */
+}
+
+.text-button {
+    align-self: flex-start;
+}
+
+.text-button p {
+    color: #DC143C;
+    height: 5vh;
+    font-size: 35px;
+}
+
+.button {
+    margin-top: 10vh; 
+    padding: 10px 20px; /* Ajustez ces valeurs pour modifier la taille du bouton */
+    font-size: 16px; /* Ajustez cette valeur pour modifier la taille du texte */
+    width: 200px; /* Ajustez cette valeur pour modifier la largeur du bouton */
+    background-color: transparent;
+    color: #DC143C; /* Couleur framboise */
+    border: 2px solid #DC143C; /* Bordure framboise */
+    border-radius: 25px; /* Bords arrondis */
+    transition: background-color 0.5s ease; /* Animation de remplissage */
+}
+
+.button:hover {
+    background-color: #DC143C; /* Remplissage framboise au survol */
+    color: white; /* Texte blanc au survol */
+}
