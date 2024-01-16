@@ -23,9 +23,15 @@
         </ul>
     </div>
     <div class="auth">
+    @if(auth()->check())
+        <span>{{ auth()->user()->first_name }} {{ auth()->user()->name }}</span>
+        <a href="{{ route('logout') }}">Logout</a>
+    @else
         <a href="{{ route('login') }}">Sign In</a>
         <a href="{{ route('register') }}">Sign Up</a>
+    @endif
     </div>
+
 </header>
 
 </section>
