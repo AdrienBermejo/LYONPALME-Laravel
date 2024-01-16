@@ -22,8 +22,8 @@
             <!-- Téléphone -->
             <div class="mt-4">
                 <p class="lbl">Téléphone :</p>
-                <x-text-input id="telephone" class="block mt-1 w-full" type="text" name="telephone" :value="old('name')" required autofocus autocomplete="telephone" placeholder="Votre Téléphone"/>
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-text-input id="telephone" class="block mt-1 w-full" type="text" name="telephone" :value="old('telephone')" required autofocus autocomplete="telephone" placeholder="Votre Téléphone"/>
+                <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
             </div>
 
             <!-- Email Address -->
