@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'folty'; /* Vous pouvez remplacer 'MaPolicePersonnalisee' par le nom que vous voulez donner à votre police */
+    src: url('fonts/folty-semi-bold.otf') format('opentype');
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -25,7 +30,7 @@ form {
 }
 
 h1 {
-    font-family: 'Your Font Family', sans-serif;
+    font-family: 'folty', sans-serif;
 }
 
 label, input {
