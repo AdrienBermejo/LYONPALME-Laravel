@@ -118,11 +118,8 @@ img {
 }
 
 #Donnees{
-    content: "";
-    display: table;
-    /*clear: both;*/
-    column-count: 2;
-    column-gap: 50px;
+    justify-content:space-between;
+    column-width:200px;
 }
 
 #Donnees_personnelles{
