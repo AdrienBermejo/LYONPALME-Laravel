@@ -15,12 +15,13 @@ class CheckAccessCode
      */
     public function handle($request, Closure $next)
 {
-    if (!$request->session()->get('access_granted')) {
-        return redirect('/'); // Change '/access' to '/'
+    if (!$request->session()->get('access_granted') && !auth()->check()) {
+        return redirect('/');
     }
 
     return $next($request);
 }
+
 
 
 
