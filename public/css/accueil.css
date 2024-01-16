@@ -144,10 +144,16 @@ header {
     margin: 10px;
     padding: 20px;
     text-align: center;
+    height: 300px; /* Ajustez cette valeur pour changer la hauteur de la bulle */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .product-slider .product img {
     max-width: 100%;
-    height: auto;
+    height: 60%; /* Ajustez cette valeur pour changer la hauteur de l'image */
+    object-fit: cover;
 }
 
