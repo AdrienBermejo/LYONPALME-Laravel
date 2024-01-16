@@ -15,21 +15,21 @@
             <!-- Surname -->
             <div class="mt-4">
                 <p class="lbl">Prénom :</p>
-                <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="name" placeholder="Votre Prénom"/>
+                <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" placeholder="Votre Prénom"/>
                 <x-input-error :messages="$errors->get('surname')" class="mt-2" />
             </div>
 
             <!-- Téléphone -->
             <div class="mt-4">
                 <p class="lbl">Téléphone :</p>
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="telephone" :value="old('name')" required autofocus autocomplete="name" placeholder="Votre Téléphone"/>
+                <x-text-input id="telephone" class="block mt-1 w-full" type="text" name="telephone" :value="old('name')" required autofocus autocomplete="telephone" placeholder="Votre Téléphone"/>
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
                 <p class="lbl">Email :</p>
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="Votre Email" />
+                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" placeholder="Votre Email" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
         </div>
@@ -37,14 +37,14 @@
             <!-- Nom Exploitation -->
             <div class="mt-4">
                 <p class="lbl">Nom de l'exploitation:</p>
-                <x-text-input id="Exploitation_name" class="block mt-1 w-full" type="text" name="Exploitation_name" :value="old('Exploitation_name')" required autofocus autocomplete="name" placeholder="Votre Exploitation"/>
+                <x-text-input id="Exploitation_name" class="block mt-1 w-full" type="text" name="Exploitation_name" :value="old('Exploitation_name')" required autofocus autocomplete="Exploitation_name" placeholder="Votre Exploitation"/>
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
             <!-- N° de SIRET -->
             <div class="mt-4">
                 <p class="lbl">Numéro de SIRET :</p>
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="SIRET" :value="old('SIRET')" required autofocus autocomplete="name" placeholder="Votre SIRET"/>
+                <x-text-input id="SIRET" class="block mt-1 w-full" type="text" name="SIRET" :value="old('SIRET')" required autofocus autocomplete="SIRET" placeholder="Votre SIRET"/>
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
