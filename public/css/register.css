@@ -116,3 +116,19 @@ input[type="text"]::placeholder {
 img {
     width: 50vh; /* Ajustez cette valeur selon la taille souhaitée */
 }
+
+#Donnees{
+    content: "";
+    display: table;
+    /*clear: both;*/
+    column-count: 2;
+    column-gap: 50px;
+}
+
+#Donnees_personnelles{
+    float:left;
+}
+
+#Donnees_entreprises{
+    float:left;
+}
