@@ -1,7 +1,14 @@
+<style>
+            @font-face {
+    font-family: 'folty'; src: url('fonts/folty-semi-bold.otf') format('opentype');
+                        }
+            x-app-layout{color: #DC013C; font-family:'folty', sans-serif;}    
+</style>
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profil') }}
+            {{ __('Profile') }}
         </h2>
     </x-slot>
 
