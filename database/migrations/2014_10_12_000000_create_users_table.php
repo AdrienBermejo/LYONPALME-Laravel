@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('Exploitation_name');
             $table->string('SIRET');
             $table->string('password');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
