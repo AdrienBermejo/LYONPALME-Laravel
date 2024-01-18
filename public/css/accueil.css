@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'folty'; /* Vous pouvez remplacer 'MaPolicePersonnalisee' par le nom que vous voulez donner à votre police */
+    font-family: 'folty'; 
     src: url('fonts/folty-semi-bold.otf') format('opentype');
 }
 
@@ -8,9 +8,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'folty', sans-serif;
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -moz-user-select: none;     /* Firefox all */
-    -ms-user-select: none;      /* IE 10+ */
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;      
     user-select: none;  
 }
 
@@ -47,7 +47,7 @@ header {
 }
 
 .logo img {
-    height: 75px; /* Ajustez la taille du logo selon vos besoins */
+    height: 75px;
 }
 
 .menu {
@@ -89,25 +89,25 @@ header {
 }
 
 .auth a {
-    background-color: #DC143C; /* Couleur framboise */
+    background-color: #DC143C;
     color: white;
-    padding: 10px 20px; /* Ajustez le rembourrage selon vos besoins */
-    border-radius: 25px; /* Bords arrondis */
+    padding: 10px 20px; 
+    border-radius: 25px;
     margin-left: 10px;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 }
 
 .auth a:hover {
-    background-color: #99082c; /* Couleur framboise foncée */
-    transform: scale(1.1); /* Agrandit le bouton de 10% */
+    background-color: #99082c;
+    transform: scale(1.1); 
 }
 
 .text-button-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 80vh; /* Ajustez cette valeur en fonction de vos besoins */
+    height: 80vh;
 }
 
 .text-button {
@@ -122,30 +122,30 @@ header {
 
 .button {
     margin-top: 10vh; 
-    padding: 10px 20px; /* Ajustez ces valeurs pour modifier la taille du bouton */
-    font-size: 16px; /* Ajustez cette valeur pour modifier la taille du texte */
-    width: 200px; /* Ajustez cette valeur pour modifier la largeur du bouton */
+    padding: 10px 20px; 
+    font-size: 16px; 
+    width: 200px;
     background-color: transparent;
-    color: #DC143C; /* Couleur framboise */
-    border: 2px solid #DC143C; /* Bordure framboise */
-    border-radius: 25px; /* Bords arrondis */
-    transition: background-color 0.5s ease; /* Animation de remplissage */
+    color: #DC143C; 
+    border: 2px solid #DC143C; 
+    border-radius: 25px; 
+    transition: background-color 0.5s ease;
 }
 
 .button:hover {
-    background-color: #DC143C; /* Remplissage framboise au survol */
-    color: white; /* Texte blanc au survol */
+    background-color: #DC143C; 
+    color: white; 
 }
 
 .product-slider .product {
     background: white;
     border-radius: 15px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
     text-align: center;
-    height: 40vh; /* Ajustez cette valeur pour changer la hauteur de la bulle */
-    width: 30vh; /* Ajustez cette valeur pour changer la largeur de la bulle */
+    height: 50vh;
+    max-width: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -153,8 +153,39 @@ header {
 }
 
 .product-slider .product img {
-    max-width: 100%;
-    height: 60%; /* Ajustez cette valeur pour changer la hauteur de l'image */
+    height: 50%;
     object-fit: cover;
+    margin: auto;
 }
 
+.product-slider .product {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-slider .product .text-container {
+    margin-top: 8vh;
+    text-align: center;
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    color: #333;
+    font-size: 2em;
+    padding: 0.25em 0.5em;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
