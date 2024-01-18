@@ -57,8 +57,8 @@
     @endforeach
 </div>
 
-<button class="slick-prev">Précédent</button>
-<button class="slick-next">Suivant</button>
+<button class="slick-prev">&#10094;</button>
+<button class="slick-next">&#10095;</button>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -67,9 +67,9 @@
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000,
-            arrows: false,
             prevArrow: $('.slick-prev'),
             nextArrow: $('.slick-next'),
+            infinite: true,
         });
     });
 </script>
