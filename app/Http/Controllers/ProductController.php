@@ -9,8 +9,7 @@ class ProductController extends Controller
 {
     public function index()
 {
-    $products = Product::all(); // Récupère tous les produits de la base de données
-    return view('accueil', ['products' => $products]); // Renvoie une vue avec les produits
+    $products = Product::all(); return $products;
 }
 
     public function store(Request $request)

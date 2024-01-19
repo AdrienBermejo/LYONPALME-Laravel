@@ -81,5 +81,61 @@
     });
 </script>
 </section>
+
+<section class="objectif">
+    <div class="logo">
+        <img src="{{ asset('css/img/label.png') }}" alt="Logo">
+    </div>
+    <div class="separator"></div>
+    <div class="content">
+        <div class="left-content">
+            <h1>Objectif</h1>
+            <ul>
+                <li>Vous gagnez du temps pour<br>gérer vos autres activités.</li>
+                <li>Vous répondez aux normes<br>sanitaires et d'étiquettage en<br>vigueur.</li>
+                <li>Vous avez la garantie d'un<br>traçabilité complète de vos<br>produits transformés.</li>
+                <li>Vous diversifiez votre offre<br>produit.</li>
+                <li>Vous avez jusqu'à 3 ans pour<br>vendre votre production.</li>
+            </ul>
+        </div>
+        <div class="right-content">
+            <h1>D'Autres Points</h1>
+            <ul>
+                <li>Vous disposez d'une offre complémentaire<br>pour vos circuits courts par lot d'environ<br>70kg de produits bruts (selon recette et<br>conditionnement).</li>
+                <li>Vous limitez le gaspillage de votre<br>production agricole.</li>
+                <li>Vous limitez l'empreinte carbone en<br>favorisant les circuits courts.</li>
+                <li>Vous favorisez l'emploi de personnes<br>porteuses de handicaps cognitifs.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="cofinanceur">
+<div class="cofinanceur-slider">
+    @foreach($cofinanceurs as $cofinanceur)
+        <div class="cofinanceur">
+            <img src="{{ asset('storage/' . $cofinanceur->logo) }}" alt="{{ $cofinanceur->name }}">
+        </div>
+    @endforeach
+</div>
+
+<button class="slick-prev">&#10094;</button>
+<button class="slick-next">&#10095;</button>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.cofinanceur-slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            prevArrow: $('.slick-prev'),
+            nextArrow: $('.slick-next'),
+            infinite: true,
+        });
+    });
+</script>
+</section>
+
 </body>
 </html>

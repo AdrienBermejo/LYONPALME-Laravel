@@ -137,8 +137,14 @@
         color: white; 
     }
 
-        .product-slider .product {
-            background: white;
+/* 
+=================================================================
+Produits Slider
+=================================================================
+*/
+
+.product-slider .product {
+        background: white;
         border-radius: 15px;
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
         margin: 20px;
@@ -205,3 +211,120 @@
         padding: 0 40px; 
     }
     
+/* 
+=================================================================
+Objectifs
+=================================================================
+*/
+
+    .objectif {
+        background-color: #C51F4A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+    }
+    
+    .objectif img {
+        width: 60vh;
+        height: 60vh;
+        padding: 50px;
+    }
+    
+    .separator {
+        border-left: 5px solid rgb(255, 255, 255);
+        height: 50%;
+        padding: 30px;
+    }
+    
+    .content {
+        display: flex;
+        flex-direction: row;
+        font-size: 18px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .left-content, .right-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 60px;
+    }
+
+
+
+/* 
+=================================================================
+CoFinanceur
+=================================================================
+*/
+.cofinanceur-slider .cofinanceur {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    height: 50vh;
+    max-width: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cofinanceur-slider .cofinanceur img {
+    height: 50%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.cofinanceur-slider .cofinanceur {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cofinanceur-slider .cofinanceur .text-container {
+    margin-top: 8vh;
+    text-align: center;
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 2em;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slick-prev {
+    left: -5px;
+    color: #DC143C;
+    z-index: 6;
+}
+
+.slick-next {
+    right: -5px; 
+    color: #DC143C;
+    z-index: 6;
+}
+
+#cofinanceur {
+    position: relative;
+}
+
+.cofinanceur-slider {
+    position: relative;
+    padding: 0 40px; 
+}

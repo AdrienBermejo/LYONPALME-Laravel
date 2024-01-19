@@ -4,12 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccessCodeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CofinanceurController;
+use App\Http\Controllers\AccueilController;
 
 Route::get('/', [AccessCodeController::class, 'index']);
 Route::post('/check-access', [AccessCodeController::class, 'checkAccess']);
 
-Route::get('/accueil', [ProductController::class, 'index'])->middleware('access');
-
+Route::get('/accueil', [AccueilController::class, 'index'])->middleware('access');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -30,3 +31,7 @@ Route::get('/add-product', [ProductController::class, 'create']);
 
 
 require __DIR__.'/auth.php';
+
+Route::get('/cofinanceurs', [CofinanceurController::class, 'index']);
+Route::get('/cofinanceurs/create', [CofinanceurController::class, 'create']);
+Route::post('/cofinanceurs', [CofinanceurController::class, 'store']);
