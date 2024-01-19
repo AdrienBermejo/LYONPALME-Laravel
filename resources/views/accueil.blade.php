@@ -27,7 +27,14 @@
     <div class="auth">
     @if(auth()->check())
         <a>{{ auth()->user()->firstname }} {{ auth()->user()->name }}</a>
-        <a href="{{ route('logout') }}">Déconnexion</a>
+        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Déconnexion') }}
+                            </x-dropdown-link>
     @else
         <a href="{{ route('login') }}">Connexion</a>
         <a href="{{ route('register') }}">Inscription</a>
