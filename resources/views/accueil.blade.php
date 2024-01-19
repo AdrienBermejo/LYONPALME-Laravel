@@ -26,7 +26,7 @@
     </div>
     <div class="auth">
     @if(auth()->check())
-        <a>{{ auth()->user()->firstname }} {{ auth()->user()->name }}</a>
+        <a href="{{ route('profile.edit') }}">{{ auth()->user()->firstname }} {{ auth()->user()->name }}</a>
         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
