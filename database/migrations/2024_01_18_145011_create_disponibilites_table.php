@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('disponibilities', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('horairedebut');
-            $table->timestamp('horairefin');
+            $table->timestamp('horairedebut')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('horairefin')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }
