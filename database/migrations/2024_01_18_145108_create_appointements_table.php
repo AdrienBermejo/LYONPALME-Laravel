@@ -17,6 +17,8 @@ return new class extends Migration
             $table->timestamp('horairefin')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->boolean('Validation')->default(false);
             $table->string('Commentaire');
+            $table->foreignId('idusers')->constrained(table: 'users', indexName:'id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('iddisponibilities')->constrained(table: 'disponibilities', indexName:'id')->onUpdate('cascade')->onDelete('cascade');
             /*$table->integer('idusers')->unsigned();
             $table->integer('iddisponibilities')->unsigned();*/
             $table->timestamps();
