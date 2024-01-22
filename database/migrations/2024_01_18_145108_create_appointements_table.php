@@ -19,17 +19,10 @@ return new class extends Migration
             $table->string('Commentaire');
             $table->foreignId('idusers')->constrained(table: 'users', indexName:'appointements_users_id')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('iddisponibilities')->constrained(table: 'disponibilities', indexName:'appointements_disponibilities_id')->onUpdate('cascade')->onDelete('cascade');
-            /*$table->integer('idusers')->unsigned();
-            $table->integer('iddisponibilities')->unsigned();*/
             $table->timestamps();
         });
 
-        /*Schema::table('appointements',function($table){
-            $table->foreign('idusers')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('iddisponibilities')->references('id')->on('disponibilities')->onDelete('cascade');
-        });*/
     }
-
 
     /**
      * Reverse the migrations.
