@@ -35,3 +35,6 @@ require __DIR__.'/auth.php';
 Route::get('/cofinanceurs', [CofinanceurController::class, 'index']);
 Route::get('/cofinanceurs/create', [CofinanceurController::class, 'create']);
 Route::post('/cofinanceurs', [CofinanceurController::class, 'store']);
+
+//Route pour avoir la page d'accueil du site
+Route::get('accueil',[AccueilController::class,'index']);
