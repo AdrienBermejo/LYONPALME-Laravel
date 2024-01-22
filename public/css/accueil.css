@@ -268,7 +268,7 @@ CoFinanceur
     margin: 20px;
     padding: 20px;
     text-align: center;
-    height: 50vh;
+    height: 30vh;
     max-width: 40vh;
     display: flex;
     flex-direction: column;
@@ -277,7 +277,7 @@ CoFinanceur
 }
 
 .cofinanceur-slider .cofinanceur img {
-    height: 50%;
+    height: 100%;
     object-fit: cover;
     margin: auto;
 }
@@ -327,4 +327,10 @@ CoFinanceur
 .cofinanceur-slider {
     position: relative;
     padding: 0 40px; 
+}
+
+#cofinanceur h1 {
+    color: #DC143C;
+    text-align: center;
+    margin-top: 5vh;
 }

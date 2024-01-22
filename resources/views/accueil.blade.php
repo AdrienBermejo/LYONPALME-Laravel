@@ -111,6 +111,7 @@
 </section>
 
 <section id="cofinanceur">
+    <h1>Nous les remercions pour leur cofinancement</h1>
 <div class="cofinanceur-slider">
     @foreach($cofinanceurs as $cofinanceur)
         <div class="cofinanceur">
