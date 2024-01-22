@@ -25,8 +25,6 @@ class AccueilController extends Controller
     $cofinanceurs = $this->cofinanceurController->index();
 
     return view('accueil', compact('products', 'cofinanceurs'));
-}
-
-    
+}    
 
 }

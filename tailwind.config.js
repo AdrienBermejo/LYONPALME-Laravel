@@ -16,6 +16,7 @@ export default {
             },
             colors:{
                 'framboise': '#DC143C',
+                'vert':'#008000',
             }
         },
     },
