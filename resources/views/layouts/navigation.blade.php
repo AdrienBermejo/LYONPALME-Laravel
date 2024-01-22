@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    <img src="{{ asset('css/logo.png') }}" class="w-1/6" alt="Logo">
                     </a>
                 </div>
 
@@ -88,10 +88,10 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-responsive-nav-link class="color-framboise" :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Se déconnecter') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

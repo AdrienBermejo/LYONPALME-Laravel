@@ -12,8 +12,11 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                customFont:['"folty"',"sans-serif"]
+                folty:['"Folty"',"sans-serif"],
             },
+            colors:{
+                'framboise': '#DC143C',
+            }
         },
     },
 

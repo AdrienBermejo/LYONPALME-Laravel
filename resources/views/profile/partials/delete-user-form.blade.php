@@ -1,10 +1,10 @@
 <section class="space-y-6">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-framboise">
             {{ __('Supprimer votre compte') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-framboise">
             {{ __('Une fois votre compte supprimé, toutes les ressources et vos données seront supprimées de façon défénitive.') }}
         </p>
     </header>
@@ -19,11 +19,11 @@
             @csrf
             @method('delete')
 
-            <h2 class="text-lg font-medium text-gray-900">
+            <h2 class="text-lg font-medium font-folty text-framboise">
                 {{ __('Êtes vous sûr de vouloir supprimer votre compte ?') }}
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="mt-1 text-sm text-framboise">
                 {{ __('Une fois votre compte supprimé, toutes les ressources et vos données seront supprimées de façon défénitive. Entrez votre Mot de passe afin de confirmer la suppression de votre compte.') }}
             </p>
 

@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-framboise">
             {{ __('Modifier votre Mot de passe') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-framboise">
             {{ __('Votre Mot de passe doit être long et doit contenir des caractères spéciaux pour assurer la sécurité.') }}
         </p>
     </header>
@@ -14,19 +14,19 @@
         @method('put')
 
         <div>
-            <x-input-label for="update_password_current_password" :value="__('Mot de passe actuel')" />
+            <x-input-label for="update_password_current_password" class="text-framboise" :value="__('Mot de passe actuel')" />
             <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
             <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
         </div>
 
         <div>
-            <x-input-label for="update_password_password" :value="__('Nouveau Mot de passe')" />
+            <x-input-label for="update_password_password" class="text-framboise" :value="__('Nouveau Mot de passe')" />
             <x-text-input id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
             <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
         </div>
 
         <div>
-            <x-input-label for="update_password_password_confirmation" :value="__('Confirmation du nouveau Mot de passe')" />
+            <x-input-label for="update_password_password_confirmation" class="text-framboise" :value="__('Confirmation du nouveau Mot de passe')" />
             <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
             <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
         </div>
