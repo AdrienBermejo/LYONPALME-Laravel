@@ -17,15 +17,15 @@ return new class extends Migration
             $table->timestamp('horairefin')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->boolean('Validation')->default(false);
             $table->string('Commentaire');
-            $table->integer('idusers')->unsigned();
-            $table->integer('iddisponibilities')->unsigned();
+            /*$table->integer('idusers')->unsigned();
+            $table->integer('iddisponibilities')->unsigned();*/
             $table->timestamps();
         });
 
-        Schema::table('appointements',function($table){
+        /*Schema::table('appointements',function($table){
             $table->foreign('idusers')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('iddisponibilities')->references('id')->on('disponibilities')->onDelete('cascade');
-        });
+        });*/
     }
 
 
