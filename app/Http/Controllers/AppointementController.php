@@ -13,7 +13,16 @@ class AppointementController extends Controller
      */
     public function index()
     {
-        //
+        
+        //Savoir si l'utilisateur est connecté
+        $user = auth()->user();
+    
+        //Rapporte les rendez vous pour cet utilisateur
+        $appointements = $user->appointements;
+    
+        //rapporte les rendez vous à la vue
+        return view('dashboard',['appointements' => $appointements]);
+
     }
 
     /**
@@ -63,4 +72,6 @@ class AppointementController extends Controller
     {
         //
     }
+
+
 }

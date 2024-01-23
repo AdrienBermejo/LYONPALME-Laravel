@@ -7,11 +7,19 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CofinanceurController;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\AppointementController;
 
 Route::get('/', [AccessCodeController::class, 'index']);
 Route::post('/check-access', [AccessCodeController::class, 'checkAccess']);
 
 Route::get('/accueil', [AccueilController::class, 'index'])->middleware('access');
+
+//route pour avoir la liste des rendez vous.
+/*Route::get('/appointements', 'AppointementController@index')
+->name('appointements.index')
+->middleware(['auth','verified']);*/
+Route::get('/appointements', [AppointementController::class, 'index'])->name('appointements');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

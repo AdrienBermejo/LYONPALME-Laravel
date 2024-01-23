@@ -5,6 +5,12 @@
                 <div class="p-6 text-gray-900">
                     {{ __("Vous êtes connecté !") }}
                 </div>
+                @foreach ($appointements as $appointement)
+                    <div>
+                        <h2>{{ $appointement ->horairedebut }} - {{$appointement-> horairefin}} </h2>
+                        <p>{{ $appointement-> Commentaire}}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
