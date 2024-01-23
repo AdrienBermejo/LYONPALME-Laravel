@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamp('horairedebut')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('horairefin')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->boolean('Validation')->default(false);
-            $table->string('Commentaire');
+            $table->string('Commentaire')->nullable();
             $table->foreignId('idusers')->constrained(table: 'users', indexName:'appointements_users_id')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('iddisponibilities')->constrained(table: 'disponibilities', indexName:'appointements_disponibilities_id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
