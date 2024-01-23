@@ -18,7 +18,7 @@ Route::get('/accueil', [AccueilController::class, 'index'])->middleware('access'
 /*Route::get('/appointements', 'AppointementController@index')
 ->name('appointements.index')
 ->middleware(['auth','verified']);*/
-Route::get('/appointements', 'AppointementController@index')->name('appointements.index')->middleware('auth');
+Route::get('/appointements', [AppointementController::class, 'index'])->name('appointements.index')->middleware('auth');
 
 
 
