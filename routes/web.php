@@ -6,6 +6,7 @@ use App\Http\Controllers\AccessCodeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CofinanceurController;
 use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\PartnerController;
 
 Route::get('/', [AccessCodeController::class, 'index']);
 Route::post('/check-access', [AccessCodeController::class, 'checkAccess']);
@@ -28,6 +29,11 @@ Route::post('/products', [ProductController::class, 'store']);
 Route::get('/products', [ProductController::class, 'index']);
 
 Route::get('/add-product', [ProductController::class, 'create']);
+
+Route::post('/partners', [PartnerController::class, 'store']);
+Route::get('/partners', [PartnerController::class, 'index']);
+
+Route::get('/add-partners', [PartnerController::class, 'create']);
 
 
 require __DIR__.'/auth.php';

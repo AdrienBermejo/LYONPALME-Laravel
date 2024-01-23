@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CofinanceurController;
+use App\Http\Controllers\PartnerController;
 
 class AccueilController extends Controller
 {
     protected $productController;
     protected $cofinanceurController;
 
-    public function __construct(ProductController $productController, CofinanceurController $cofinanceurController)
+    public function __construct(ProductController $productController, CofinanceurController $cofinanceurController, PartnerController $partnerController)
     {
         $this->productController = $productController;
         $this->cofinanceurController = $cofinanceurController;
+        $this->partnerController = $partnerController;
     }
 
     public function index()
@@ -24,7 +26,10 @@ class AccueilController extends Controller
     // Appel à la méthode index de CofinanceurController
     $cofinanceurs = $this->cofinanceurController->index();
 
-    return view('accueil', compact('products', 'cofinanceurs'));
+    // Appel à la méthode index de PartnerController
+    $partners = $this->partnerController->index();
+
+    return view('accueil', compact('products', 'cofinanceurs', 'partners'));
 }    
 
 }

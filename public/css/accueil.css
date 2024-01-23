@@ -334,3 +334,83 @@ CoFinanceur
     text-align: center;
     margin-top: 5vh;
 }
+
+
+/* 
+=================================================================
+Partenaires
+=================================================================
+*/
+.partenaire-slider .partenaire {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    height: 30vh;
+    max-width: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.partenaire-slider .partenaire img {
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.partenaire-slider .partenaire {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.partenaire-slider .partenaire .text-container {
+    margin-top: 8vh;
+    text-align: center;
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 2em;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slick-prev {
+    left: -5px;
+    color: #DC143C;
+    z-index: 6;
+}
+
+.slick-next {
+    right: -5px; 
+    color: #DC143C;
+    z-index: 6;
+}
+
+#partenaire {
+    position: relative;
+}
+
+.partenaire-slider {
+    position: relative;
+    padding: 0 40px; 
+}
+
+#partenaire h1 {
+    color: #DC143C;
+    text-align: center;
+    margin-top: 5vh;
+}
