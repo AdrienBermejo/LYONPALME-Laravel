@@ -3,7 +3,9 @@
     <link rel="stylesheet" href="{{ asset ('css/register.css')}}">
 
         <!-- Name -->
+    <a href="{{ url('accueil') }}">
     <img src="{{ asset('css/logo.png')}}" alt="Logo">
+    </a>
     <div id="Donnees">
         <div id="Donnees_personnelles">
             <div class="mt-4">

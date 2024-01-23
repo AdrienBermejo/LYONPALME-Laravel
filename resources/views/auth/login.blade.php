@@ -4,7 +4,9 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
+        <a href="{{ url('accueil') }}">
         <img src="{{ asset('css/logo.png')}}" alt="Logo">
+        </a>
 
         <!-- Email Address -->
         <div class="mt-4">
