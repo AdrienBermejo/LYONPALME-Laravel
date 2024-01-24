@@ -11,7 +11,7 @@ class Appointement extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'idusers');
+        return $this->belongsTo(User::class);
     }
 
 }

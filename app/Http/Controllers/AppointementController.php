@@ -15,10 +15,10 @@ class AppointementController extends Controller
     {
         
         //Savoir si l'utilisateur est connecté
-        $user = auth()->user();
+        $idusers = auth()->user();
     
         //Rapporte les rendez vous pour cet utilisateur
-        $appointements = $user->appointements;
+        $appointements = $idusers->appointements;
     
         //rapporte les rendez vous à la vue
         return view('dashboard',['appointements' => $appointements]);
@@ -36,16 +36,9 @@ class AppointementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
-        // Validate the request...
-    
-        $appointment = new Appointment;
-        $appointment->user_id = auth()->user()->id;
-        // Set other fields...
-    
-        $appointment->save();
-    
+
         // Return a response...
     }
     
@@ -53,21 +46,11 @@ class AppointementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($iduser)
+    public function show($idusers)
     {
-        //Get the currently authenticated user
-        $currentUser = auth()->user();
-
-        //Check if the authenticated user is the same as the user who owns the appointement
-        if ($currentUser->id == $iduser) 
-        {
-            $appointements = Appointement::where('iduser',$iduser)->get();
-        }
-        else
-        {
-            return response()->json(['error' => 'Unauthorized'],403);
-        }
+        //
     }
+    
     /**
      * Show the form for editing the specified resource.
      */

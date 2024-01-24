@@ -14,14 +14,6 @@ Route::post('/check-access', [AccessCodeController::class, 'checkAccess']);
 
 Route::get('/accueil', [AccueilController::class, 'index'])->middleware('access');
 
-//route pour avoir la liste des rendez vous.
-/*Route::get('/appointements', 'AppointementController@index')
-->name('appointements.index')
-->middleware(['auth','verified']);*/
-Route::get('/appointements', [AppointementController::class, 'index'])->name('appointements.index')->middleware('auth');
-
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -30,8 +22,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
 });
 
+//route pour le dashboard avec les rendez vous
+Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
 // routes/web.php
 
 Route::post('/products', [ProductController::class, 'store']);

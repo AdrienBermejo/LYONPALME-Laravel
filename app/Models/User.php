@@ -49,6 +49,6 @@ class User extends Authenticatable
 
     public function appointements()
     {
-        return $this->hasMany(Appointement::class,'id');
+        return $this->hasMany(Appointement::class,'idusers');
     }
 }
