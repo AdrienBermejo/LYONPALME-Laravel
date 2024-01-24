@@ -36,23 +36,42 @@ class AppointementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAppointementRequest $request)
+    public function store(Request $request)
     {
-        //
+        // Validate the request...
+    
+        $appointment = new Appointment;
+        $appointment->user_id = auth()->user()->id;
+        // Set other fields...
+    
+        $appointment->save();
+    
+        // Return a response...
     }
+    
 
     /**
      * Display the specified resource.
      */
-    public function show(Appointement $appointement)
+    public function show($iduser)
     {
-        //
-    }
+        //Get the currently authenticated user
+        $currentUser = auth()->user();
 
+        //Check if the authenticated user is the same as the user who owns the appointement
+        if ($currentUser->id == $iduser) 
+        {
+            $appointements = Appointement::where('iduser',$iduser)->get();
+        }
+        else
+        {
+            return response()->json(['error' => 'Unauthorized'],403);
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Appointement $appointement)
+    public function edit($idusers)
     {
         //
     }
