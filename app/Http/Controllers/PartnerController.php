@@ -13,11 +13,6 @@ class PartnerController extends Controller
         return $partners;
     }
 
-    public function create()
-    {
-        return view('add-partners');
-    }
-
     public function store(Request $request)
     {
         $partners = new Partner;
@@ -26,6 +21,11 @@ class PartnerController extends Controller
         $partners->save();
 
         return redirect('/partners');
+    }
+
+    public function create()
+    {
+        return view('add-partners');
     }
 
 }

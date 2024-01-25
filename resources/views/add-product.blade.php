@@ -6,7 +6,7 @@
     <title>Ajouter un produit</title>
     <!-- Assurez-vous d'inclure le CSS de Bootstrap si vous voulez utiliser son style -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/addproduct.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/add.css') }}">
 </head>
 <body>
 <div class="container mt-4">
