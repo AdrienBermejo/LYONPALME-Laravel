@@ -15,6 +15,7 @@
                             allDaySlot: false,
                             expandRows:true,
                             events: @json($events),
+                            hiddenDays:[0,6]
                         });
                             calendar.render();
                         });
