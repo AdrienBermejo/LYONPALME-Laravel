@@ -11,9 +11,9 @@ class ReservationController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $event=[];
+        /*$event=[];
 
-        $appointements = Appointement::user()->get();
+        $appointements = \App\Models\Appointement::user();
 
         foreach ($appointements as $appointement){
             $event[] =[
@@ -22,6 +22,6 @@ class ReservationController extends Controller
             ];
         }
         //
-        return view('reservation',compact('events'));
+        return view('reservation',compact('events'));*/
     }
 }
