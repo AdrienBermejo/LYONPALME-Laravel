@@ -19,7 +19,7 @@ class AppointementController extends Controller
         $user = auth()->user();
 
         // Récupère les rendez-vous pour cet utilisateur
-        $appointements = $user->appointements;
+        $appointements = $user->appointements()->orderBy('created_at','desc')->get();
 
         // Affiche les rendez-vous à la vue du tableau de bord
         return view('dashboard', ['appointements' => $appointements]);

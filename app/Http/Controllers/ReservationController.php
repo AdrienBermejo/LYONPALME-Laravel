@@ -21,8 +21,9 @@ class ReservationController extends Controller
         //On fait maintenent la liste des heures de début et fin des rendez vous et on le mets dans la valeur event
         foreach ($appointements as $appointement){
             $events[] =[
-                'heurededebut' => $appointement->heuredebut,
-                'heuredefin' => $appointement->heurefin,
+                'title' => $appointement->horairedebut/*{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}*/,
+                'start' => $appointement->horairedebut,
+                'end' => $appointement->horairefin,
             ];
         }
         //Et on retourne la vue reservation avec les events dedans
