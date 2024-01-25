@@ -48,3 +48,6 @@ Route::post('/cofinanceurs', [CofinanceurController::class, 'store']);
 
 //Route pour avoir la page d'accueil du site
 Route::get('accueil',[AccueilController::class,'index']);
+
+Route::get('/reservation', function () {return view('reservation');})->name('reservation'); 
+Route::get('/reservation', \App\Http\Controllers\ReservationController::class)->name('reservation');
