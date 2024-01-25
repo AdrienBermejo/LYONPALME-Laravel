@@ -19,10 +19,10 @@ class AppointementController extends Controller
         $user = auth()->user();
 
         // Récupère les rendez-vous pour cet utilisateur
-        $appointments = $user->appointments;
+        $appointements = $user->appointements;
 
         // Affiche les rendez-vous à la vue du tableau de bord
-        return view('dashboard', ['appointments' => $appointments]);
+        return view('dashboard', ['appointements' => $appointements]);
     }
 
     /**

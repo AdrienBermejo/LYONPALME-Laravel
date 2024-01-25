@@ -6,22 +6,18 @@
                     {{ __("Historique de prise de rendez vous") }}
                 </div>
                     <div>
-                        @if(isset($appointements))
-                            @foreach ($appointements as $appointement)
-                                <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise">
-                                    <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
-                                    <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
-                                    @if($appointement->Validation)
-                                        <p>Validation: Validé</p>
-                                    @else
-                                        <p>Validation: Non validé</p>
-                                    @endif
-                                    <p> Commentaire de Terradouceurs : {{ $appointement-> Commentaire}}</p>
-                                </div>
-                            @endforeach
-                        @else
-                        <p class="ps-5 py-5 font-folty text-framboise">Vous n'avez pas encore de rendez vous !</p>
-                        @endif
+                        @foreach ($appointements as $appointement)
+                            <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise">
+                                <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
+                                <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
+                                @if($appointement->Validation)
+                                    <p>Validation: Validé</p>
+                                @else
+                                    <p>Validation: Non validé</p>
+                                @endif
+                                <p> Commentaire de Terradouceurs : {{ $appointement-> Commentaire}}</p>
+                            </div>
+                        @endforeach
                     </div>
             </div>
         </div>

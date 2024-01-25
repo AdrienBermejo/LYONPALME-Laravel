@@ -11,17 +11,21 @@ class ReservationController extends Controller
      */
     public function __invoke(Request $request)
     {
-        /*$event=[];
+        //la variable events qui prépares les evenements sont crées
+        $events=[];
+        //On invoque une instance du modèle Appointement et on en fait variable rendezvous
+        $rendezvous = new \App\Models\Appointement;
+        //Ensuite on veux la fonction user de la classe Appointement
+        $appointements = $rendezvous->user();
 
-        $appointements = \App\Models\Appointement::user();
-
+        //On fait maintenent la liste des heures de début et fin des rendez vous et on le mets dans la valeur event
         foreach ($appointements as $appointement){
-            $event[] =[
+            $events[] =[
                 'heurededebut' => $appointement->heuredebut,
                 'heuredefin' => $appointement->heurefin,
             ];
         }
-        //
-        return view('reservation',compact('events'));*/
+        //Et on retourne la vue reservation avec les events dedans
+        return view('reservation',compact('events'));
     }
 }
