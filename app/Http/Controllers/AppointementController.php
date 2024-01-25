@@ -9,70 +9,87 @@ use App\Models\Appointement;
 class AppointementController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
+    * Affiche la liste des rendez-vous de l'utilisateur connecté.
+    *
+    * @return \Illuminate\View\View
+    */
     public function index()
     {
-        
-        //Savoir si l'utilisateur est connecté
-        $idusers = auth()->user();
-    
-        //Rapporte les rendez vous pour cet utilisateur
-        $appointements = $idusers->appointements;
-    
-        //rapporte les rendez vous à la vue
-        return view('dashboard',['appointements' => $appointements]);
+        // Vérifie si l'utilisateur est connecté
+        $user = auth()->user();
 
+        // Récupère les rendez-vous pour cet utilisateur
+        $appointments = $user->appointments;
+
+        // Affiche les rendez-vous à la vue du tableau de bord
+        return view('dashboard', ['appointments' => $appointments]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
+    * Affiche le formulaire de création d'un nouveau rendez-vous.
+    *
+    * @return void
+    */
     public function create()
     {
-        //
+        // À implémenter si nécessaire
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store()
+    * Enregistre un nouveau rendez-vous dans la base de données.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function store(StoreAppointementRequest $request)
     {
-
-        // Return a response...
+        // À implémenter pour sauvegarder le nouveau rendez-vous
     }
-    
+        
 
     /**
-     * Display the specified resource.
-     */
+    * Affiche les détails d'un rendez-vous spécifique.
+    *
+    * @param  int  $idusers
+    * @return void
+    */
     public function show($idusers)
     {
-        //
+    // À implémenter pour afficher les détails d'un rendez-vous
     }
-    
+        
+
     /**
-     * Show the form for editing the specified resource.
-     */
+    * Affiche le formulaire de modification d'un rendez-vous.
+    *
+    * @param  int  $idusers
+    * @return void
+    */
     public function edit($idusers)
     {
-        //
+        // À implémenter si nécessaire
     }
 
     /**
-     * Update the specified resource in storage.
-     */
+    * Met à jour les informations d'un rendez-vous dans la base de données.
+    *
+    * @param  UpdateAppointementRequest  $request
+    * @param  Appointement  $appointment
+    * @return \Illuminate\Http\Response
+    */
     public function update(UpdateAppointementRequest $request, Appointement $appointement)
     {
-        //
+        // À implémenter pour mettre à jour les informations du rendez-vous
     }
 
     /**
-     * Remove the specified resource from storage.
-     */
+    * Supprime un rendez-vous spécifique de la base de données.
+    *
+    * @param  Appointement  $appointment
+    * @return \Illuminate\Http\Response
+    */
     public function destroy(Appointement $appointement)
     {
-        //
+        // À implémenter pour supprimer le rendez-vous
     }
 
 

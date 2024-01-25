@@ -88,12 +88,14 @@ label {
 }
 
 /* Cacher le bouton de téléchargement de fichier d'origine */
-#image {
+#image,
+#logo {
     display: none;
 }
 
 /* Créer un nouveau bouton de téléchargement de fichier personnalisé */
-#image + label {
+#image + label,
+#logo + label {
     padding: 10px 20px;
     background-color: #DC143C; 
     border-radius: 20px; 
@@ -101,6 +103,7 @@ label {
     cursor: pointer;
 }
 
-#image + label:hover {
+#image + label:hover,
+#logo + label:hover {
     background-color: #9d233b;
 }
