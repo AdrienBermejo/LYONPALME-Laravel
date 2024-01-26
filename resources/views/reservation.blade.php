@@ -13,14 +13,15 @@
                             initialView: 'timeGridWeek',
                             slotMinTime: '8:00:00',
                             slotMaxTime: '17:00:00',
+                            slotDuration: '01:00:00',
                             allDaySlot: false,
                             expandRows:true,
                             events: @json($events),
                             hiddenDays:[0,6],
-                            dateClick:function(date,jsEvent,view){
-                                alert('Vous avez choisi le ' + info.dateStr);
-                                alert('Coordonées ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-                                alert('Vue actuelle ' + info.view.type);
+                            dateClick:function(info){
+                                let horairedebut= new Date(info.dateStr);
+                                let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
+                                alert("Horaire de debut : "+ horairedebut+" Horaire de fin : "+ horairefin);
                             }
                         });
                             calendar.render();
