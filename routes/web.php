@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
 
 //route pour le dashboard avec les rendez vous
 Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
+Route::post('/appointements',[AppointementController::class,'store']);
 // routes/web.php
 
 Route::post('/products', [ProductController::class, 'store']);

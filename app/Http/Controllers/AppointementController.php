@@ -40,8 +40,17 @@ class AppointementController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function store(StoreAppointementRequest $request)
+    public function store(Request $request)
     {
+        $user = auth()->user();
+        $appointements = new Appointement;
+        $appointements-> horairedebut = (new \DateTime($request->horairedebut))->getTimestamp();
+        $appointements-> horairefin = (new \DateTime($request->horairefin))->getTimestamp();
+        $appointements-> Validation = false;
+        $appointements-> idusers = $user->id;
+        $appointements-> save();
+
+        return response()->json(['success' => true]);
         // À implémenter pour sauvegarder le nouveau rendez-vous
     }
         
