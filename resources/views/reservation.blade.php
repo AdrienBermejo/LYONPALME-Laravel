@@ -3,6 +3,7 @@
             @push('scripts')
                 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
                 <script src="fullcalendar/lang/fr.js"></script>
+                <script src="fullcalendar/interaction.js"></script>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
                         var calendarEl = document.getElementById('calendar');
@@ -15,7 +16,12 @@
                             allDaySlot: false,
                             expandRows:true,
                             events: @json($events),
-                            hiddenDays:[0,6]
+                            hiddenDays:[0,6],
+                            dateClick:function(date,jsEvent,view){
+                                alert('Vous avez choisi le ' + info.dateStr);
+                                alert('Coordonées ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                                alert('Vue actuelle ' + info.view.type);
+                            }
                         });
                             calendar.render();
                         });
