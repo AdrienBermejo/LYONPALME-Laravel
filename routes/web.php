@@ -8,46 +8,55 @@ use App\Http\Controllers\CofinanceurController;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AppointementController;
+use App\Http\Controllers\ReservationController;
 
+// Route d'accueil avec vérification de l'accès
 Route::get('/', [AccessCodeController::class, 'index']);
 Route::post('/check-access', [AccessCodeController::class, 'checkAccess']);
 
-Route::get('/accueil', [AccueilController::class, 'index'])->middleware('access');
-
+// Route du tableau de bord
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Routes de gestion du profil utilisateur
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
 });
 
-//route pour le dashboard avec les rendez vous
-Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
-// routes/web.php
+// Routes pour les rendez-vous
+Route::middleware('auth')->group(function () {
+    Route::get('/appointments', [AppointementController::class, 'index'])->name('appointments.index');
+});
 
-Route::post('/products', [ProductController::class, 'store']);
-Route::get('/products', [ProductController::class, 'index']);
+// Routes pour les produits
+Route::middleware('auth')->group(function () {
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/add-product', [ProductController::class, 'create']);
+});
 
-Route::get('/add-product', [ProductController::class, 'create']);
+// Routes pour les partenaires
+Route::middleware('auth')->group(function () {
+    Route::post('/partners', [PartnerController::class, 'store']);
+    Route::get('/partners', [PartnerController::class, 'index']);
+    Route::get('/add-partners', [PartnerController::class, 'create']);
+});
 
-Route::post('/partners', [PartnerController::class, 'store']);
-Route::get('/partners', [PartnerController::class, 'index']);
+// Routes pour les cofinanceurs
+Route::middleware('auth')->group(function () {
+    Route::get('/cofinanceurs', [CofinanceurController::class, 'index']);
+    Route::get('/cofinanceurs/create', [CofinanceurController::class, 'create']);
+    Route::post('/cofinanceurs', [CofinanceurController::class, 'store']);
+});
 
-Route::get('/add-partners', [PartnerController::class, 'create']);
+// Route pour la page d'accueil du site
+Route::get('/accueil', [AccueilController::class, 'index']);
 
+// Route pour la page de réservation
+Route::get('/reservation', [ReservationController::class, '__invoke'])->name('reservation');
 
+// Authentification
 require __DIR__.'/auth.php';
-
-Route::get('/cofinanceurs', [CofinanceurController::class, 'index']);
-Route::get('/cofinanceurs/create', [CofinanceurController::class, 'create']);
-Route::post('/cofinanceurs', [CofinanceurController::class, 'store']);
-
-//Route pour avoir la page d'accueil du site
-Route::get('accueil',[AccueilController::class,'index']);
-
-Route::get('/reservation', function () {return view('reservation');})->name('reservation'); 
-Route::get('/reservation', \App\Http\Controllers\ReservationController::class)->name('reservation');
