@@ -13,14 +13,37 @@
                             initialView: 'timeGridWeek',
                             slotMinTime: '8:00:00',
                             slotMaxTime: '17:00:00',
+                            slotDuration: '01:00:00',
                             allDaySlot: false,
                             expandRows:true,
                             events: @json($events),
                             hiddenDays:[0,6],
-                            dateClick:function(date,jsEvent,view){
-                                alert('Vous avez choisi le ' + info.dateStr);
-                                alert('Coordonées ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-                                alert('Vue actuelle ' + info.view.type);
+                            dateClick:function(info){
+                                let horairedebut= new Date(info.dateStr);
+                                let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
+                                fetch('/appointements', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            horairedebut: horairedebut.toISOString(),
+            horairefin: horairefin.toISOString()
+        })
+    }).then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              calendar.addEvent({
+                  title: 'New Appointment',
+                  start: horairedebut.toISOString(),
+                  end: horairefin.toISOString(),
+                  allDay: true
+              });
+          } else {
+              alert('Error: ' + data.error);
+          }
+      });
                             }
                         });
                             calendar.render();

@@ -27,9 +27,8 @@ Route::middleware('auth')->group(function () {
 });
 
 // Routes pour les rendez-vous
-Route::middleware('auth')->group(function () {
-    Route::get('/appointments', [AppointementController::class, 'index'])->name('appointments.index');
-});
+Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
+Route::post('/appointements',[AppointementController::class,'store']);
 
 // Routes pour les produits
 Route::middleware('auth')->group(function () {
