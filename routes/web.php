@@ -26,10 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//route pour le dashboard avec les rendez vous
+// Routes pour les rendez-vous
 Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
 Route::post('/appointements',[AppointementController::class,'store']);
-// routes/web.php
 
 // Routes pour les produits
 Route::middleware('auth')->group(function () {
