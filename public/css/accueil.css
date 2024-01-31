@@ -35,9 +35,10 @@
 
     header {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         height: 10vh;
+        position: fixed;
     }
 
     .logo-menu {
@@ -111,7 +112,7 @@
     }
 
     .text-button {
-        align-self: flex-start;
+        align-self: center;
     }
 
     .text-button p {
@@ -136,6 +137,32 @@
         background-color: #DC143C; 
         color: white; 
     }
+
+    .sticky {
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 25px;
+        z-index: 100;
+        position: fixed;
+        text-align: center;
+    }
+    
+    .logo-menu {
+        display: flex;
+        align-items: center;
+        margin: 0 auto; /* Centre le menu */
+    }
+    
+    .sticky .logo-menu {
+        margin-left: 0; 
+    }
+    
+    .menu {
+        display: flex;
+        list-style: none;
+        justify-content: center; /* Centre le contenu de la navbar */
+    }
+    
 
 /* 
 =================================================================
@@ -413,4 +440,15 @@ Partenaires
     color: #DC143C;
     text-align: center;
     margin-top: 5vh;
+}
+
+footer {
+    background-color: #f0f0f0; /* Couleur de fond du footer (à adapter selon vos préférences) */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #DC143C; /* Ligne de couleur #DC143C en haut du footer */
+    color: #DC143C; /* Couleur du texte "Copyright" */
 }

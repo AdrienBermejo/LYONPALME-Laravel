@@ -1,9 +1,9 @@
 <section id="container">
     <header>
     <div class="logo-menu">
-        <div class="logo">
+        <!-- <div class="logo">
             <img src="{{ asset('css/logo.png') }}" alt="Logo">
-        </div>
+        </div> -->
         <ul class="menu">
             <li><a href="#">La Conserverie</a></li>
             <li><a href="#produits">Les Produits</a></li>
@@ -37,4 +37,17 @@
             <button class="button">Voir les produits</button>
         </div>
     </div>
+
+    <script>
+    window.addEventListener('scroll', function() {
+        var header = document.querySelector('header');
+        var scrollY = window.scrollY;
+
+        if (scrollY > 0) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+    </script>
 </section>
