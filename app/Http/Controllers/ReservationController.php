@@ -26,9 +26,9 @@ class ReservationController extends Controller
         // Crée une liste d'événements à partir des heures de début et de fin des rendez-vous
         foreach ($appointements as $appointement) {
             $events[] = [
-                'title' => $appointement->horairedebut,
-                'start' => $appointement->horairedebut,
-                'end' => $appointement->horairefin,
+                'title' => $appointement->horairedebut->format(DateTime::ATOM),
+                'start' => $appointement->horairedebut->format(DateTime::ATOM),
+                'end' => $appointement->horairefin->format(DateTime::ATOM),
             ];
         }
 

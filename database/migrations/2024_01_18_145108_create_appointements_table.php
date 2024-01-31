@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('appointements', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('horairedebut')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('horairefin')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('horairedebut');
+            $table->timestamp('horairefin');
             $table->boolean('Validation')->default(false);
             $table->string('Commentaire')->nullable();
             $table->foreignId('idusers')->constrained(table: 'users', indexName:'appointements_users_id')->onUpdate('cascade')->onDelete('cascade');

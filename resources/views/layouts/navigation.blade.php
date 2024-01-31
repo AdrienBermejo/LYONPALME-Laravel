@@ -1,19 +1,22 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-7">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class=" flex justify-left shrink-0 flex items-center">
                     <a href="{{ url('accueil') }}">
                     <img src="{{ asset('css/logo.png') }}" class="w-1/6" alt="Logo">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden flex justify-end space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
+                        {{__('Reservation')}}
                     </x-nav-link>
                 </div>
             </div>

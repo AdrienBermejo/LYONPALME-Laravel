@@ -21,29 +21,7 @@
                             dateClick:function(info){
                                 let horairedebut= new Date(info.dateStr);
                                 let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
-                                fetch('/appointements', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: JSON.stringify({
-            horairedebut: horairedebut.toISOString(),
-            horairefin: horairefin.toISOString()
-        })
-    }).then(response => response.json())
-      .then(data => {
-          if (data.success) {
-              calendar.addEvent({
-                  title: 'New Appointment',
-                  start: horairedebut.toISOString(),
-                  end: horairefin.toISOString(),
-                  allDay: true
-              });
-          } else {
-              alert('Error: ' + data.error);
-          }
-      });
+                                alert("Vous avez choisi: " + horairedebut + " Heure de fin: " + horairefin);
                                 
                             }
                         });
