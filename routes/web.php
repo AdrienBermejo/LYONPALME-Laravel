@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 
 // Routes pour les rendez-vous
 Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
-Route::post('/appointements',[AppointementController::class,'store']);
+Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
 
 // Routes pour les produits
 Route::middleware('auth')->group(function () {
