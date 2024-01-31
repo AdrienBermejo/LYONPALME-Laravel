@@ -4,6 +4,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
                 <script src="fullcalendar/lang/fr.js"></script>
                 <script src="fullcalendar/interaction.js"></script>
+                <script src="https://ajax.googleapis.google.com/ajax/libs/jquery/3.5.1/jquery.min.js"><script>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
                         var calendarEl = document.getElementById('calendar');
@@ -22,6 +23,25 @@
                                 let horairedebut= new Date(info.dateStr);
                                 let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
                                 alert("Vous avez choisi: " + horairedebut + " Heure de fin: " + horairefin);
+
+                                let horairedebutISO = horairedebut.toISOString();
+                                let horairefinISO = horairefin.toISOString();
+
+                                $.ajax({
+                                    url:'{{ route("appointements.store") }}',
+                                    type:'POST',
+                                    data:{
+                                        'horairedebut': horairedebutISO,
+                                        'horairefin':horairefinISO
+                                    },
+                                    success: function(reponse){
+                                        console.log('Donnée envoyée avec succès');
+                                    }
+                                    error: function(error){
+                                        console.log('Erreu d envoie');
+                                    }
+                                })
+
                                 
                             }
                         });
