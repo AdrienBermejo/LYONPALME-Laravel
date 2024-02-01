@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink flex items-center">
+                <div class="h-360 shrink flex items-center">
                     <a href="{{ url('accueil') }}">
                     <img src="{{ asset('css/logo.png') }}" class="w-1/6" alt="Logo">
                     </a>

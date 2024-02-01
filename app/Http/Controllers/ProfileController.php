@@ -68,7 +68,6 @@ class ProfileController extends Controller
 
         // Supprime le compte de l'utilisateur
         $user->delete();
-
         // Invalide la session et régénère le jeton CSRF
         $request->session()->invalidate();
         $request->session()->regenerateToken();
