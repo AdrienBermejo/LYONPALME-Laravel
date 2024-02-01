@@ -4,19 +4,19 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class=" flex justify-left shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center">
                     <a href="{{ url('accueil') }}">
                     <img src="{{ asset('css/logo.png') }}" class="w-1/6" alt="Logo">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden flex justify-end space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
-                        {{__('Reservation')}}
+                        {{__('Réservation')}}
                     </x-nav-link>
                 </div>
             </div>
@@ -70,8 +70,11 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
+                {{ __('Réservation')}}
             </x-responsive-nav-link>
         </div>
 
