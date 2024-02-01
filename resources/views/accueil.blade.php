@@ -24,4 +24,6 @@
 
     <!-- Partenaire Section -->
     @include('partials.partenaire', ['partners' => $partners])
+
+    @include('partials.footer')
 </html>
