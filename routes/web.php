@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/accueil', [AccueilController::class, 'index']);
 
 // Route pour la page de réservation
-Route::get('/reservation', [ReservationController::class, '__invoke'])->name('reservation');
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
 
 // Authentification
 require __DIR__.'/auth.php';
