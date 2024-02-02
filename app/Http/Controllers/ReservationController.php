@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Appointement;
 
 class ReservationController extends Controller
 {
@@ -12,27 +13,18 @@ class ReservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
-    public function __invoke(Request $request)
+    public function index()
     {
-        // Initialise un tableau pour stocker les événements
-        $events = [];
-
-        // Instancie le modèle Appointement
-        $appointement = new \App\Models\Appointement;
-
-        // Récupère les rendez-vous de l'utilisateur
-        $appointements = $appointement->user();
-
-        // Crée une liste d'événements à partir des heures de début et de fin des rendez-vous
-        foreach ($appointements as $appointement) {
+        $events = array();
+        $appointements = Appointement::all();
+        foreach($appointements as $appointement){
             $events[] = [
-                'title' => $appointement->horairedebut->format(DateTime::ATOM),
-                'start' => $appointement->horairedebut->format(DateTime::ATOM),
-                'end' => $appointement->horairefin->format(DateTime::ATOM),
-            ];
-        }
+                'title' => $appointement->horairedebut,
+                'start' => $appointement->horairedebut,
+                'end' => $appointement->horairefin,
 
-        // Retourne la vue 'reservation' avec les événements
-        return view('reservation', compact('events'));
+        ];
+    }
+        return view('reservation', ['event => $events']);
     }
 }
