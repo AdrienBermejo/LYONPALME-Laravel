@@ -1,3 +1,3 @@
 <footer>
-    Copyright
+    Copyright © Terra Douceurs. Tous droits réservés
 </footer>
