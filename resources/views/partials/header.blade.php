@@ -1,9 +1,9 @@
 <section id="container">
     <header>
     <div class="logo-menu">
-        <!-- <div class="logo">
-            <img src="{{ asset('css/logo.png') }}" alt="Logo">
-        </div> -->
+        <div class="logo1">
+            <img src="{{ asset('css/img/poterra.png') }}" alt="Logo1">
+        </div>
         <ul class="menu">
             <li><a href="#">La Conserverie</a></li>
             <li><a href="#produits">Les Produits</a></li>

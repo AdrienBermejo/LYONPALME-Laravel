@@ -51,6 +51,11 @@
         margin-left: -10vh;
     }
 
+    .logo1 img {
+        height: 50px;
+        margin-left: -10vh;
+    }
+
     .menu {
         display: flex;
         list-style: none;

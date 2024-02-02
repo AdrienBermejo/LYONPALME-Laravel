@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <title>Terra Douceurs</title>
+    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
