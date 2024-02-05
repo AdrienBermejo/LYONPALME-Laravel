@@ -31,31 +31,34 @@ Route::get('/appointements', [AppointementController::class,'index'])->name('app
 Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
 
 // Routes pour les produits
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::post('/products', [ProductController::class, 'store']);
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/add-product', [ProductController::class, 'create']);
 });
 
 // Routes pour les partenaires
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::post('/partners', [PartnerController::class, 'store']);
     Route::get('/partners', [PartnerController::class, 'index']);
     Route::get('/add-partners', [PartnerController::class, 'create']);
 });
 
 // Routes pour les cofinanceurs
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/cofinanceurs', [CofinanceurController::class, 'index']);
     Route::get('/cofinanceurs/create', [CofinanceurController::class, 'create']);
     Route::post('/cofinanceurs', [CofinanceurController::class, 'store']);
 });
+
 
 // Route pour la page d'accueil du site
 Route::get('/accueil', [AccueilController::class, 'index']);
 
 // Route pour la page de réservation
 Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
+
+Route::get('/admin', 'AdminController@index')->name('admin');
 
 // Authentification
 require __DIR__.'/auth.php';
