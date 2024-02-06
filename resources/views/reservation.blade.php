@@ -24,6 +24,7 @@
                                 let horairedebut= new Date(info.dateStr);
                                 let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
                                 alert("Vous avez choisi: " + horairedebut + " Heure de fin: " + horairefin);
+                                alert("Je suis un test, normalement je reçois les infos")
                                 }
                         });
                             calendar.render();
