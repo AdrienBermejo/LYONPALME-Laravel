@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Routes pour les rendez-vous
+// //Routes pour les rendez-vous
 Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
 Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
 
