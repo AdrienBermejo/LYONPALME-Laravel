@@ -4,7 +4,7 @@
     <!-- Inclusion du CSS pour la page d'administration -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
-<div class="container mt-4">
+<div class="container mt-4 ">
     <h1>Page d'administration</h1>
 
     <div class="row">

@@ -19,9 +19,9 @@ class ReservationController extends Controller
         $appointements = Appointement::all();
         foreach($appointements as $appointement){
             $events[] = [
-                'title' => $appointement->horairedebut->format(DateTime::ATOM),
-                'start' => $appointement->horairedebut->format(DateTime::ATOM),
-                'end' => $appointement->horairefin->format(DateTime::ATOM),
+                'title' => $appointement->horairedebut,
+                'start' => $appointement->horairedebut,
+                'end' => $appointement->horairefin,
 
         ];
     }
