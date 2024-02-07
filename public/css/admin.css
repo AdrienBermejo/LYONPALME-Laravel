@@ -1,12 +1,70 @@
-/* public/css/admin.css */
+@font-face {
+    font-family: 'folty'; 
+    src: url('fonts/folty-semi-bold.otf') format('opentype');
+}
+
+* {
+    font-family: folty;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .admin-block {
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
-    width: 300px; /* Définir une largeur fixe pour les blocs */
+    flex: 0 0 calc(33.3333% - 40px);
+    margin: 10px;
+    height: auto;
+    min-height: 300px;
+    text-align: center;
+    width: 80vh; 
+    max-width: 100%;
 }
+
+/* public/css/admin.css */
+
+.admin-block .form-group label,
+.admin-block .form-group input,
+.admin-block .form-group select {
+    margin-bottom: 10px;
+}
+
+.admin-block .form-group label {
+    color: #DC143C;
+    
+}
+
+.admin-block h2 {
+    color: #DC143C;
+    font-size: 25px;
+}
+
+.admin-block button {
+    margin-top: 10px;
+    background-color: transparent;
+    color: #DC143C;
+    border: 2px solid #DC143C;
+    border-radius: 25px;
+    padding: 5px 10px;
+    transition: background-color 0.5s ease;
+}
+
+.admin-block button:hover {
+    background-color: #DC143C; 
+        color: white; 
+}
+
+.no-margin {
+    margin-bottom: 0 !important;
+    color: black !important; 
+}
+
 
 .admin-block h2 {
     margin-top: 0;

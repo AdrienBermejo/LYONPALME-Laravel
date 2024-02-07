@@ -34,6 +34,10 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::post('/admin/products', [AdminController::class, 'storeProduct']);
     Route::post('/admin/partners', [AdminController::class, 'storePartner']);
     Route::post('/admin/cofinanceurs', [AdminController::class, 'storeCofinanceur']);
+    Route::post('/admin/delete/product', [AdminController::class, 'deleteProduct']);
+    Route::post('/admin/delete/partner', [AdminController::class, 'deletePartner']);
+    Route::post('/admin/delete/cofinanceur', [AdminController::class, 'deleteCofinanceur']);
+
 });
 
 // Route pour la page d'accueil du site
