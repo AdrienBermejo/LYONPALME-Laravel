@@ -60,7 +60,7 @@
         </div>
 
         <div>
-            <x-input-label for="Exploitation_name" class="text-framboise" :value="__('Nom de l exploitation')" />
+            <x-input-label for="Exploitation_name" class="text-framboise" :value="__('Nom de l\'exploitation')" />
             <x-text-input id="Exploitation_name" name="Exploitation_name" type="text" class="mt-1 block w-full" :value="old('Exploitation_name', $user->Exploitation_name)" required autofocus autocomplete="Exploitation_name" />
             <x-input-error class="mt-2" :messages="$errors->get('Exploitation_name')" />
         </div>

@@ -1,8 +1,5 @@
-<!-- resources/views/admin/index.blade.php -->
+<x-app-layout><!-- resources/views/admin/index.blade.php -->
 
-@extends('layouts.app')
-
-@section('content')
 <head>
     <!-- Inclusion du CSS pour la page d'administration -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
@@ -158,4 +155,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-app-layout>
