@@ -6,8 +6,7 @@
                 <script src="fullcalendar/interaction.js"></script>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        var events = @json($events);
-                        console.log(events);
+                        
                         var calendarEl = document.getElementById('calendar');
                         var calendar = new FullCalendar.Calendar(calendarEl, {
                             locale:'fr',
@@ -18,13 +17,11 @@
                             slotDuration: '01:00:00',
                             allDaySlot: false,
                             expandRows:true,
-                            events: @json($events),
                             hiddenDays:[0,6],
                             dateClick:function(info){
                                 let horairedebut= new Date(info.dateStr);
                                 let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
                                 alert("Vous avez choisi: " + horairedebut + " Heure de fin: " + horairefin);
-                                alert("Je suis un test, normalement je reçois les infos")
                                 }
                         });
                             calendar.render();
