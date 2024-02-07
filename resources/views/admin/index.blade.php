@@ -134,9 +134,9 @@
     </div>
     <script>
     // Stocker les données dans des variables JavaScript
-    var products = @json($products);
-    var partners = @json($partners);
-    var cofinanceurs = @json($cofinanceurs);
+    //var products = @json($products);
+    //var partners = @json($partners);
+    //var cofinanceurs = @json($cofinanceurs);
 
     // Mettre à jour la liste des éléments lorsque le type d'élément est changé
     $('#type').change(function() {
