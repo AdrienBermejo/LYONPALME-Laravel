@@ -73,4 +73,60 @@ class AdminController extends Controller
 
         return redirect('/admin');
     }
+
+    public function deleteProduct(Request $request)
+{
+    // Récupérez l'ID du produit à partir de la requête
+    $id = $request->input('id');
+
+    // Trouvez le produit avec l'ID spécifié
+    $product = Product::find($id);
+
+    // Si le produit existe, supprimez-le
+    if ($product) {
+        $product->delete();
+        return redirect('/admin')->with('success', 'Produit supprimé avec succès');
+    }
+
+    // Si le produit n'existe pas, retournez un message d'erreur
+    return redirect('/admin')->with('error', 'Produit non trouvé');
+}
+
+public function deletePartner(Request $request)
+{
+    // Récupérez l'ID du partenaire à partir de la requête
+    $id = $request->input('id');
+
+    // Trouvez le partenaire avec l'ID spécifié
+    $partner = Partner::find($id);
+
+    // Si le partenaire existe, supprimez-le
+    if ($partner) {
+        $partner->delete();
+        return redirect('/admin')->with('success', 'Partenaire supprimé avec succès');
+    }
+
+    // Si le partenaire n'existe pas, retournez un message d'erreur
+    return redirect('/admin')->with('error', 'Partenaire non trouvé');
+}
+
+public function deleteCofinanceur(Request $request)
+{
+    // Récupérez l'ID du co-financeur à partir de la requête
+    $id = $request->input('id');
+
+    // Trouvez le co-financeur avec l'ID spécifié
+    $cofinanceur = Cofinanceur::find($id);
+
+    // Si le co-financeur existe, supprimez-le
+    if ($cofinanceur) {
+        $cofinanceur->delete();
+        return redirect('/admin')->with('success', 'Co-financeur supprimé avec succès');
+    }
+
+    // Si le co-financeur n'existe pas, retournez un message d'erreur
+    return redirect('/admin')->with('error', 'Co-financeur non trouvé');
+}
+
+
 }
