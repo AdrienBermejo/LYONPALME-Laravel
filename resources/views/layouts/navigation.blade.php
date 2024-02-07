@@ -76,6 +76,9 @@
             <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
                 {{ __('Réservation')}}
             </x-responsive-nav-link>
+            <x-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
+                {{__('Administration')}}
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

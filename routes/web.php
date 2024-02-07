@@ -3,12 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccessCodeController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CofinanceurController;
 use App\Http\Controllers\AccueilController;
-use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AppointementController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\AdminController;
 
 // Route d'accueil avec vérification de l'accès
 Route::get('/', [AccessCodeController::class, 'index']);
@@ -30,35 +28,19 @@ Route::middleware('auth')->group(function () {
 Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
 Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
 
-// Routes pour les produits
+// Routes pour l'administration
 Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::post('/products', [ProductController::class, 'store']);
-    Route::get('/products', [ProductController::class, 'index']);
-    Route::get('/add-product', [ProductController::class, 'create']);
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/admin/products', [AdminController::class, 'storeProduct']);
+    Route::post('/admin/partners', [AdminController::class, 'storePartner']);
+    Route::post('/admin/cofinanceurs', [AdminController::class, 'storeCofinanceur']);
 });
-
-// Routes pour les partenaires
-Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::post('/partners', [PartnerController::class, 'store']);
-    Route::get('/partners', [PartnerController::class, 'index']);
-    Route::get('/add-partners', [PartnerController::class, 'create']);
-});
-
-// Routes pour les cofinanceurs
-Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/cofinanceurs', [CofinanceurController::class, 'index']);
-    Route::get('/cofinanceurs/create', [CofinanceurController::class, 'create']);
-    Route::post('/cofinanceurs', [CofinanceurController::class, 'store']);
-});
-
 
 // Route pour la page d'accueil du site
 Route::get('/accueil', [AccueilController::class, 'index']);
 
 // Route pour la page de réservation
 Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
-
-Route::get('/admin', 'AdminController@index')->name('admin');
 
 // Authentification
 require __DIR__.'/auth.php';
