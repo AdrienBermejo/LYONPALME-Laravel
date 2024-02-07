@@ -12,6 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    @if(auth()->user()->is_admin)
+                        <x-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
+                                {{ __('Administration') }}
+                            </x-nav-link>
+                    @endif
                     <x-nav-link :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -76,9 +81,11 @@
             <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
                 {{ __('Réservation')}}
             </x-responsive-nav-link>
-            <x-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
-                {{__('Administration')}}
-            </x-nav-link>
+            @if(auth()->user()->is_admin)
+                <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
+                    {{__('Administration')}}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
