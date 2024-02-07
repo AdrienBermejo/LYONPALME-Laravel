@@ -14,7 +14,7 @@
         <!-- Section pour ajouter un produit -->
         <div class="col-md-4">
             <div class="admin-block">
-                <h2>Ajouter un produit</h2>
+                <h2 class="titre_block">Ajouter un produit</h2>
                 <form action="/admin/products" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -23,19 +23,28 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Logo</label><br>
-                        <input type="file" class="form-control-file" id="image" name="image" required onchange="loadFile(event)"><br>
-                        <label class="no-margin" for="image">Ajouter un fichier</label>
+                        <input type="file" class="form-control-file" id="image" name="image" required style="display: none;"><br>
+                        <label class="custom-file-upload" for="image" required onchange="loadFile(event)">Ajouter une image</label>
                         <img id="output" style="width: 200px; height: auto; display: none;"/>
+                        <span id="file-name"></span>
                     </div>
                     <script>
                     var loadFile = function(event) {
                         var output = document.getElementById('output');
                         output.src = URL.createObjectURL(event.target.files[0]);
                         output.onload = function() {
-                            URL.revokeObjectURL(output.src) // libérer de la mémoire
+                            URL.revokeObjectURL(output.src)
                         }
                         output.style.display = 'block';
                     };
+
+                    document.querySelector('.custom-file-upload').addEventListener('click', function() {
+                        document.getElementById('image').click();
+                    });
+
+                    document.getElementById('image').addEventListener('change', function() {
+                        document.getElementById('file-name').textContent = this.files[0].name;
+                    });
                     </script>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="is_bio" name="is_bio">
@@ -47,26 +56,63 @@
         </div>
 
         <!-- Section pour supprimer un produit -->
-        <div class="col-md-4">
-            <div class="admin-block">
-                <h2>Supprimer un produit</h2>
-                <form class="deleteProductForm" action="/admin/delete/product" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="product_id">ID du produit</label><br>
-                        <input type="number" class="form-control" id="product_id" name="id" required>
-                    </div>
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
-                </form>
-                <div class="message" style="display: none; color: green;"></div> <!-- Message de confirmation -->
+<div class="col-md-4">
+    <div class="admin-block">
+        <h2 class="titre_block">Supprimer un produit</h2>
+        <form id="deleteProductForm" action="/admin/delete/product" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="product_id">ID du produit</label><br>
+                <input type="number" class="form-control" id="product_id" name="id" required>
             </div>
-        </div>
+            <div class="flex items-center gap-4">
+                <button type="submit" class="btn btn-danger">{{ __('Supprimer') }}</button>
+                <p id="message" style="display: none; color: green;"></p> <!-- Message de confirmation -->
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+document.getElementById('deleteProductForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var form = this;
+    var message = document.getElementById('message');
+
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Afficher le message de confirmation
+        message.textContent = 'Suppression réussie !';
+        message.style.display = 'block';
+
+        // Cacher le message après 2 secondes
+        setTimeout(function() {
+            message.style.display = 'none';
+        }, 2000);
+    })
+    .catch(error => {
+        // Afficher le message d'erreur
+        message.textContent = 'Erreur lors de la suppression : ' + error;
+        message.style.display = 'block';
+    });
+});
+</script>
+
 
 
         <!-- Section pour ajouter un partenaire -->
         <div class="col-md-4">
             <div class="admin-block">
-                <h2>Ajouter un partenaire</h2>
+                <h2 class="titre_block">Ajouter un partenaire</h2>
                 <form action="/admin/partners" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -98,7 +144,7 @@
         <!-- Section pour supprimer un partenaire -->
         <div class="col-md-4">
             <div class="admin-block">
-                <h2>Supprimer un partenaire</h2>
+                <h2 class="titre_block">Supprimer un partenaire</h2>
                 <form action="/admin/delete/partner" method="POST">
                     @csrf
                     <div class="form-group">
@@ -114,7 +160,7 @@
         <!-- Section pour ajouter un co-financeur -->
         <div class="col-md-4">
             <div class="admin-block">
-                <h2>Ajouter un co-financeur</h2>
+                <h2 class="titre_block">Ajouter un co-financeur</h2>
                 <form action="/admin/cofinanceurs" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -145,7 +191,7 @@
         <!-- Section pour supprimer un co-financeur -->
         <div class="col-md-4">
             <div class="admin-block">
-                <h2>Supprimer un co-financeur</h2>
+                <h2 class="titre_block">Supprimer un co-financeur</h2>
                 <form action="/admin/delete/cofinanceur" method="POST">
                     @csrf
                     <div class="form-group">

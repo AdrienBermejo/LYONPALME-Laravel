@@ -3,14 +3,35 @@
     src: url('fonts/folty-semi-bold.otf') format('opentype');
 }
 
-* {
-    font-family: folty;
+@font-face {
+    font-family: 'folty-bold'; 
+    src: url('fonts/folty-bold.otf') format('opentype');
 }
 
-.row {
+@font-face {
+    font-family: 'folty-light'; 
+    src: url('fonts/folty-light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'folty-medium'; 
+    src: url('fonts/folty-medium.otf') format('opentype');
+}
+
+* {
+    font-family: folty-medium;
+}
+
+.row,
+.items-center {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+img {
+    max-width: 20%;
+    height: auto;
 }
 
 .admin-block {
@@ -25,14 +46,7 @@
     text-align: center;
     width: 80vh; 
     max-width: 100%;
-}
-
-/* public/css/admin.css */
-
-.admin-block .form-group label,
-.admin-block .form-group input,
-.admin-block .form-group select {
-    margin-bottom: 10px;
+    border-radius: 26px;
 }
 
 .admin-block .form-group label {
@@ -40,10 +54,37 @@
     
 }
 
-.admin-block h2 {
+.titre_block {
+    font-family: folty-bold;
     color: #DC143C;
-    font-size: 25px;
+    font-size: 26px;
+    font-weight: lighter !important;
+    margin-top: 0;
 }
+
+.form-control {
+    background-color: #fff;
+    border-radius: 16px;
+    border: 2px solid #DC143C;
+}
+
+.custom-file-upload {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #D9D9D9; 
+    color: #000 !important;
+    border: none; 
+    border-radius: 4px; 
+}
+
+#file-name {
+    margin-left: 10px;
+}
+
+
+
+
+
 
 .admin-block button {
     margin-top: 10px;
@@ -57,17 +98,7 @@
 
 .admin-block button:hover {
     background-color: #DC143C; 
-        color: white; 
-}
-
-.no-margin {
-    margin-bottom: 0 !important;
-    color: black !important; 
-}
-
-
-.admin-block h2 {
-    margin-top: 0;
+    color: white; 
 }
 
 .admin-block form {
