@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page de code d'accès</title>
+    <title>Accès Terra Douceurs</title>
+    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/accesscode.css') }}">
 </head>
 <body>

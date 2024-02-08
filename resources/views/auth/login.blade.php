@@ -1,5 +1,9 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <head>
+    <title>Connexion au compte</title>
+    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+    </head>
     <link rel="stylesheet" href="{{ asset ('css/login.css')}}">
 
     <form method="POST" action="{{ route('login') }}">

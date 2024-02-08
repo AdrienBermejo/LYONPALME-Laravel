@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="{{ asset ('css/forgotpassword.css')}}">
+<head>
+    <title>Oubli de Mot de passe</title>
+    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+</head>
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
