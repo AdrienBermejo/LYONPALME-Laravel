@@ -53,7 +53,7 @@ class AdminController extends Controller
 
         $partner = new Partner;
         $partner->name = $request->name;
-        $partner->logo = $request->file('logo')->storePublicly('logos', 'public');
+        $partner->logo = $request->file('imagepartenaire')->storePublicly('logos', 'public');
         $partner->save();
 
         return redirect('/admin');
@@ -68,7 +68,7 @@ class AdminController extends Controller
 
         $cofinanceur = new Cofinanceur;
         $cofinanceur->name = $request->name;
-        $cofinanceur->logo = $request->file('logo')->storePublicly('logos', 'public');
+        $cofinanceur->logo = $request->file('imagecofi')->storePublicly('logos', 'public');
         $cofinanceur->save();
 
         return redirect('/admin');

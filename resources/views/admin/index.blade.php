@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <div class="container mt-4 ">
+    <p id="partner-message" style="display: none; color: green;">Partenaire ajouté avec succès</p>
     <div class="row">
         <!-- Section pour ajouter un produit -->
         <div class="col-md-4">
@@ -34,11 +35,6 @@
                         }
                         output.style.display = 'block';
                     };
-
-                    document.querySelector('.custom-file-upload').addEventListener('click', function() {
-                        document.getElementById('image').click();
-                    });
-
                     document.getElementById('image').addEventListener('change', function() {
                         document.getElementById('file-name').textContent = this.files[0].name;
                     });
@@ -116,11 +112,14 @@ document.getElementById('deleteProductForm').addEventListener('submit', function
                         <label for="name">Nom</label><br>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" id="image" name="image" required style="display: none;"><br>
+                    <div class="form-group text-center">
                         <label for="logo">Logo</label><br>
-                        <label class="custom-file-upload" for="image" required onchange="loadPartenaire(event)">Ajouter une image</label>
-                        <img id="outputpartenaire" style="width: 200px; height: auto; display: none;"/>
+                        <label for="imagepartenaire" class="custom-file-upload" required>Ajouter une image</label>
+                        <input type="file" class="form-control-file" id="imagepartenaire" name="imagepartenaire" required style="display: none;" onchange="loadPartenaire(event)">
+                        <div class="text-center">
+                            <img id="outputpartenaire" class="mx-auto" style="width: 200px; height: auto; display: none;">
+                        </div>
+                        <span id="file-name-produit"></span>
                     </div>
                     <script>
                     var loadPartenaire = function(event) {
@@ -131,6 +130,9 @@ document.getElementById('deleteProductForm').addEventListener('submit', function
                         }
                         output.style.display = 'block';
                     };
+                    document.getElementById('imagepartenaire').addEventListener('change', function() {
+                        document.getElementById('file-name-produit').textContent = this.files[0].name;
+                    });
                     </script>
                     <button type="submit" class="btn btn-primary">Ajouter</button>
                 </form>
@@ -164,11 +166,14 @@ document.getElementById('deleteProductForm').addEventListener('submit', function
                         <label for="name">Nom</label><br>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" id="image" name="image" required style="display: none;"><br>
+                    <div class="form-group text-center">
                         <label for="logo">Logo</label><br>
-                        <label class="custom-file-upload" for="image" required onchange="loadCofi(event)">Ajouter une image</label>
-                        <img id="outputcofi" style="width: 200px; height: auto; display: none;"/>
+                        <label for="imagecofi" class="custom-file-upload" required>Ajouter une image</label>
+                        <input type="file" class="form-control-file" id="imagecofi" name="imagecofi" required style="display: none;" onchange="loadCofi(event)">
+                        <div class="text-center">
+                            <img id="outputcofi" class="mx-auto" style="width: 200px; height: auto; display: none;">
+                        </div>
+                        <span id="file-name-cofi"></span>
                     </div>
                     <script>
                     var loadCofi = function(event) {
@@ -179,6 +184,9 @@ document.getElementById('deleteProductForm').addEventListener('submit', function
                         }
                         output.style.display = 'block';
                     };
+                    document.getElementById('imagecofi').addEventListener('change', function() {
+                        document.getElementById('file-name-cofi').textContent = this.files[0].name;
+                    });
                     </script>
                     <button type="submit" class="btn btn-primary">Ajouter</button>
                 </form>
