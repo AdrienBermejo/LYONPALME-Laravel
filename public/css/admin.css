@@ -1,3 +1,4 @@
+/* Définitions de polices */
 @font-face {
     font-family: 'folty'; 
     src: url('fonts/folty-semi-bold.otf') format('opentype');
@@ -18,8 +19,10 @@
     src: url('fonts/folty-medium.otf') format('opentype');
 }
 
+/* Styles généraux */
 * {
     font-family: folty-medium;
+    box-sizing: border-box; /* La taille des éléments inclut les bordures et le padding */
 }
 
 .row,
@@ -29,70 +32,59 @@
     justify-content: center;
 }
 
-img {
-    max-width: 20%;
-    height: auto;
-}
-
+/* Styles pour les blocs administratifs */
 .admin-block {
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    flex: 0 0 calc(33.3333% - 40px);
-    margin: 10px;
+    padding: 2vh;
+    margin-bottom: 2vh;
+    flex: 0 0 calc(33.3333% - 4vw);
+    margin: 1vh;
     height: auto;
-    min-height: 300px;
+    min-height: 30vh;
     text-align: center;
-    width: 80vh; 
+    width: 40vw; /* Largeur des blocs */
     max-width: 100%;
-    border-radius: 26px;
+    border-radius: 2vh; /* Rayon de la bordure */
 }
 
-.admin-block .form-group label {
-    color: #DC143C;
-    
-}
-
+/* Styles pour les titres des blocs */
 .titre_block {
     font-family: folty-bold;
     color: #DC143C;
-    font-size: 26px;
-    font-weight: lighter !important;
+    font-size: 2.5vw;
+    font-weight: lighter;
     margin-top: 0;
 }
 
+/* Styles pour les éléments de formulaire */
 .form-control {
     background-color: #fff;
-    border-radius: 16px;
-    border: 2px solid #DC143C;
+    border-radius: 1vw; /* Rayon de la bordure */
+    border: 0.2vw solid #DC143C; /* Épaisseur et couleur de la bordure */
 }
 
 .custom-file-upload {
-    padding: 10px;
+    padding: 1vh;
     cursor: pointer;
     background-color: #D9D9D9; 
-    color: #000 !important;
+    color: #000;
     border: none; 
-    border-radius: 4px; 
+    border-radius: 1vh; 
 }
 
 #file-name {
-    margin-left: 10px;
+    margin-left: 1vw;
 }
 
-
-
-
-
-
+/* Styles pour les boutons */
 .admin-block button {
-    margin-top: 10px;
+    margin-top: 1vh;
     background-color: transparent;
     color: #DC143C;
-    border: 2px solid #DC143C;
-    border-radius: 25px;
-    padding: 5px 10px;
+    border: 0.2vw solid #DC143C;
+    border-radius: 2vw; /* Rayon de la bordure */
+    padding: 0.5vh 1vw;
     transition: background-color 0.5s ease;
 }
 
@@ -101,14 +93,21 @@ img {
     color: white; 
 }
 
+/* Styles pour les formulaires */
 .admin-block form {
-    margin-top: 20px;
+    margin-top: 2vh;
 }
 
+/* Styles pour les boutons de suppression */
 .admin-block .delete-button {
     background-color: red;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 1vh 2vw;
     cursor: pointer;
+}
+
+
+#outputproduct {
+    margin-top: 10px;
 }

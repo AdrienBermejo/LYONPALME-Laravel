@@ -5,8 +5,6 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <div class="container mt-4 ">
-    <h1>Page d'administration</h1>
-
     <div class="row">
         <!-- Section pour ajouter un produit -->
         <div class="col-md-4">
@@ -18,16 +16,18 @@
                         <label for="title">Titre</label><br>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
-                    <div class="form-group">
-                        <label for="image">Logo</label><br>
-                        <input type="file" class="form-control-file" id="image" name="image" required style="display: none;"><br>
-                        <label class="custom-file-upload" for="image" required onchange="loadFile(event)">Ajouter une image</label>
-                        <img id="output" style="width: 200px; height: auto; display: none;"/>
+                    <div class="form-group text-center"> <!-- Ajout de la classe text-center pour centrer le contenu -->
+                        <label for="logo">Logo</label><br>
+                        <label for="image" class="custom-file-upload" required>Ajouter une image</label>
+                        <input type="file" class="form-control-file" id="image" name="image" required style="display: none;" onchange="loadProduct(event)">
+                        <div class="text-center"> <!-- Ajout d'un conteneur text-center pour centrer l'image -->
+                            <img id="outputproduct" class="mx-auto" style="width: 200px; height: auto; display: none;"> <!-- Ajout de la classe mx-auto pour centrer l'image -->
+                        </div>
                         <span id="file-name"></span>
                     </div>
                     <script>
-                    var loadFile = function(event) {
-                        var output = document.getElementById('output');
+                    var loadProduct = function(event) {
+                        var output = document.getElementById('outputproduct');
                         output.src = URL.createObjectURL(event.target.files[0]);
                         output.onload = function() {
                             URL.revokeObjectURL(output.src)
@@ -117,14 +117,14 @@ document.getElementById('deleteProductForm').addEventListener('submit', function
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="form-group">
+                        <input type="file" class="form-control-file" id="image" name="image" required style="display: none;"><br>
                         <label for="logo">Logo</label><br>
-                        <input type="file" class="form-control-file" id="logo" name="logo" required onchange="loadFile(event)"><br>
-                        <label class="no-margin" for="logo">Ajouter un fichier</label>
-                        <img id="output" style="width: 200px; height: auto; display: none;"/>
+                        <label class="custom-file-upload" for="image" required onchange="loadPartenaire(event)">Ajouter une image</label>
+                        <img id="outputpartenaire" style="width: 200px; height: auto; display: none;"/>
                     </div>
                     <script>
-                    var loadFile = function(event) {
-                        var output = document.getElementById('output');
+                    var loadPartenaire = function(event) {
+                        var output = document.getElementById('outputpartenaire');
                         output.src = URL.createObjectURL(event.target.files[0]);
                         output.onload = function() {
                             URL.revokeObjectURL(output.src) // libérer de la mémoire
@@ -165,14 +165,14 @@ document.getElementById('deleteProductForm').addEventListener('submit', function
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="form-group">
+                        <input type="file" class="form-control-file" id="image" name="image" required style="display: none;"><br>
                         <label for="logo">Logo</label><br>
-                        <input type="file" class="form-control-file" id="logo" name="logo" required onchange="loadFile(event)"><br>
-                        <label class="no-margin" for="logo">Ajouter un fichier</label>
-                        <img id="output" style="width: 200px; height: auto; display: none;"/>
+                        <label class="custom-file-upload" for="image" required onchange="loadCofi(event)">Ajouter une image</label>
+                        <img id="outputcofi" style="width: 200px; height: auto; display: none;"/>
                     </div>
                     <script>
-                    var loadFile = function(event) {
-                        var output = document.getElementById('output');
+                    var loadCofi = function(event) {
+                        var output = document.getElementById('outputcofi');
                         output.src = URL.createObjectURL(event.target.files[0]);
                         output.onload = function() {
                             URL.revokeObjectURL(output.src) // libérer de la mémoire

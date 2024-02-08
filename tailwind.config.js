@@ -1,7 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 
-/** @type {import('tailwindcss').Config} */
 export default {
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
@@ -12,14 +11,16 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                folty:['"Folty"',"sans-serif"],
+                folty: ['"Folty"', 'sans-serif'],
             },
-            colors:{
-                'framboise': '#DC143C',
-                'vert':'#008000',
-            }
+            colors: {
+                framboise: '#DC143C',
+                vert: '#008000',
+            },
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+    ],
 };
