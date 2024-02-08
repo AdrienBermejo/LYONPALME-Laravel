@@ -41,7 +41,7 @@ class AdminController extends Controller
         $product->is_bio = $request->has('is_bio');
         $product->save();
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'Produit ajouté avec succès');
     }
 
     public function storePartner(Request $request)
@@ -56,7 +56,7 @@ class AdminController extends Controller
         $partner->logo = $request->file('imagepartenaire')->storePublicly('logos', 'public');
         $partner->save();
 
-        return redirect('/admin')->with('success', 'Partenaire ajouté avec succès');;
+        return redirect('/admin')->with('success', 'Partenaire ajouté avec succès');
     }
 
     public function storeCofinanceur(Request $request)
@@ -71,7 +71,7 @@ class AdminController extends Controller
         $cofinanceur->logo = $request->file('imagecofi')->storePublicly('logos', 'public');
         $cofinanceur->save();
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'Co-financeur ajouté avec succès');;
     }
 
     public function deleteProduct(Request $request)

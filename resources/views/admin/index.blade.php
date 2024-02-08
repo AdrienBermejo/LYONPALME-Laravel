@@ -6,7 +6,9 @@
 </head>
 <div class="container mt-4 ">
     @if(session('success'))
-        <p style="color: green;">{{ session('success') }}</p>
+    <div class="rounded-lg w-1/4 mx-auto text-white bg-vert p-5 ">
+        <p>{{ session('success') }}</p>
+    </div>
     @endif
     <div class="row">
         <!-- Section pour ajouter un produit -->
