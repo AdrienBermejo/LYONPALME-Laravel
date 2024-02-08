@@ -34,7 +34,7 @@
         </head>
     <body>
         <div class="p-8">
-            <div id="calendar"></div>
+            <div class="bg-white" id="calendar"></div>
         </div>    
     </body>
 
