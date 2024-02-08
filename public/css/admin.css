@@ -108,6 +108,8 @@
 }
 
 
-#outputproduct {
+#outputproduct,
+#outputpartenaire,
+#outputcofi {
     margin-top: 10px;
 }
