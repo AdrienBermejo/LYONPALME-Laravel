@@ -7,7 +7,7 @@
                 </div>
                     <div>
                         @foreach ($appointements as $appointement)
-                            <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise">
+                            <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise mb-4">
                                 <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
                                 <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
                                 @if($appointement->Validation)

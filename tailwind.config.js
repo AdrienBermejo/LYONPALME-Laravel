@@ -15,6 +15,7 @@ export default {
             },
             colors: {
                 framboise: '#DC143C',
+                framboisehover:'#99082c',
                 vert: '#008000',
             },
         },
