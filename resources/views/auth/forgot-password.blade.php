@@ -5,7 +5,9 @@
 
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
+        <a href="{{ url('accueil') }}">
         <img src="{{ asset('css/logo.png')}}" alt="Logo">
+        </a>
 
         <div class="mb-4 text-sm text-gray-600">
         <p class="lbl">Vous avez oublié votre Mot de passe, renseignez votre adresse Email. </br> Nous enverrons un lien pour créer un nouveau Mot de passe</p>

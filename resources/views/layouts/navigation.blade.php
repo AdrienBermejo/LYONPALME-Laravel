@@ -13,14 +13,14 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @if(auth()->user()->is_admin)
-                        <x-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
+                        <x-nav-link class="text-framboise hover:text-framboisehover" :href="route('admin.index')" :active="request()->routeIs('/admin')">
                                 {{ __('Administration') }}
                             </x-nav-link>
                     @endif
-                    <x-nav-link :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
+                    <x-nav-link class="text-framboise hover:text-framboisehover" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
+                    <x-nav-link class="text-framboise hover:text-framboisehover" :href="route('reservation')" :active="request()->routeIs('/reservation')">
                         {{__('Réservation')}}
                     </x-nav-link>
                 </div>
@@ -30,7 +30,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-framboise hover:text-framboisehover focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->firstname }} {{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -42,7 +42,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('profile.edit')">
                             {{ __('Profil') }}
                         </x-dropdown-link>
 
@@ -50,7 +50,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
+                            <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Déconnexion') }}
@@ -75,7 +75,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-white border-b border-gray-100 rounded-lg">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
+            <x-responsive-nav-link class="text-framboise" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
@@ -91,8 +91,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-framboisehover">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-framboise">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
