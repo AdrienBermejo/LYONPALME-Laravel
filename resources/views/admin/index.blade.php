@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <div class="container mt-4 ">
-    <p id="partner-message" style="display: none; color: green;">Partenaire ajouté avec succès</p>
+    @if(session('success'))
+        <p style="color: green;">{{ session('success') }}</p>
+    @endif
     <div class="row">
         <!-- Section pour ajouter un produit -->
         <div class="col-md-4">

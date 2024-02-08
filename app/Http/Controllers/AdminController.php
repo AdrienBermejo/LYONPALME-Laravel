@@ -56,7 +56,7 @@ class AdminController extends Controller
         $partner->logo = $request->file('imagepartenaire')->storePublicly('logos', 'public');
         $partner->save();
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'Partenaire ajouté avec succès');;
     }
 
     public function storeCofinanceur(Request $request)
