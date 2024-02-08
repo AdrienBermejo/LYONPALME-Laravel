@@ -1,6 +1,10 @@
 <x-guest-layout>
+<head>
+    <title>Confirmation de Mot de passe</title>
+    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+</head>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('C'est une page sécurisée. Veuillez renseignez votre Mot de passe avant de continuer.') }}
+        {{ __('C\'est une page sécurisée. Veuillez renseignez votre Mot de passe avant de continuer.') }}
     </div>
 
     <form method="POST" action="{{ route('password.confirm') }}">

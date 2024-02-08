@@ -1,6 +1,10 @@
 <form method="POST" action="{{ route('register') }}">
     @csrf
     <link rel="stylesheet" href="{{ asset ('css/register.css')}}">
+    <head>
+    <title>Création du compte</title>
+    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+    </head>
 
         <!-- Name -->
     <a href="{{ url('accueil') }}">
