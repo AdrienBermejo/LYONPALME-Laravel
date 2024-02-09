@@ -6,7 +6,6 @@
                 <script src="fullcalendar/interaction.js"></script>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        
                         var calendarEl = document.getElementById('calendar');
                         var calendar = new FullCalendar.Calendar(calendarEl, {
                             locale:'fr',
