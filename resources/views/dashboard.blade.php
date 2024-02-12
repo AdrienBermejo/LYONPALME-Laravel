@@ -6,6 +6,9 @@
                     {{ __("Historique de prise de rendez vous") }}
                 </div>
                     <div>
+                    @if($appointements->isEmpty())
+                        <p class="ps-5 py-5 font-folty text-framboise border-solid mb-4">Vous n'avez pris aucun rendez vous pour le moment</p>
+                    @else
                         @foreach ($appointements as $appointement)
                             <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise mb-4">
                                 <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
@@ -18,6 +21,7 @@
                                 <p> Commentaire de Terradouceurs : {{ $appointement-> Commentaire}}</p>
                             </div>
                         @endforeach
+                    @endif
                     </div>
             </div>
         </div>
