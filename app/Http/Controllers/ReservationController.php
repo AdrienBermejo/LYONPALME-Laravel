@@ -22,9 +22,8 @@ class ReservationController extends Controller
                 'title' => $appointement->horairedebut,
                 'start' => $appointement->horairedebut,
                 'end' => $appointement->horairefin,
-
-        ];
+            ];
     }
-        return view('reservation', ['event => $events']);
+        return view('reservation', ['events' => $events]);
     }
 }

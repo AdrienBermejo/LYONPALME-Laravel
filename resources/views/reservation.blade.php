@@ -5,6 +5,7 @@
                 <script src="fullcalendar/lang/fr.js"></script>
                 <script src="fullcalendar/interaction.js"></script>
                 <script>
+                    var events = @json($events);
                     document.addEventListener('DOMContentLoaded', function () {
                         var calendarEl = document.getElementById('calendar');
                         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -17,6 +18,7 @@
                             allDaySlot: false,
                             expandRows:true,
                             hiddenDays:[0,6],
+                            events:events;
                             dateClick:function(info){
                                 let horairedebut= new Date(info.dateStr);
                                 let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
