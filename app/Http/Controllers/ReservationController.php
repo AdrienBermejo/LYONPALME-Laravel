@@ -20,8 +20,9 @@ class ReservationController extends Controller
         $currentUserId = auth()->user()->id; 
         foreach($appointements as $appointement){
             $color = ($appointement->idusers === $currentUserId) ? '#008000' : '#4d7fb0';
+            $title = ($appointement->idusers === $currentUserId) ? "Mon rendez-vous" : "Plage horaire déjà prise";
             $events[] = [
-                'title' => "Plage horaire déjà prise",
+                'title' => $title,
                 'start' => $appointement->horairedebut,
                 'end' => $appointement->horairefin,
                 'validation' => $appointement->Validation,
