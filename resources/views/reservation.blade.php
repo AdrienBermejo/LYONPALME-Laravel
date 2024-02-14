@@ -2,6 +2,7 @@
         <head>
             @push('scripts')
                 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                 <script src="fullcalendar/lang/fr.js"></script>
                 <script src="fullcalendar/interaction.js"></script>
                 <script>
@@ -27,6 +28,27 @@
                             dateClick:function(info){
                                 let horairedebut= new Date(info.dateStr);
                                 let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
+                                $.ajax({
+                                    url:'/appointements',
+                                    type:'POST',
+                                    data:{
+                                        horairedebut:horairedebut.toISOString(),
+                                        horairefin:horairefin.toISOString(),
+                                    },
+                                    headers:{
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                    success:function(response){
+                                        if(response.success){
+                                            alert("Rendez-vous pris en compte !");
+                                        } else {
+                                            alert("Erreur, le rendez-vous n'a pas été pris, veuillez réssayer");
+                                        }
+                                    },
+                                    error:function(response){
+                                        alert("Erreur, le rendez-vous n'a pas été pris, veuillez réssayer");
+                                    }
+                                });
                                 alert("Vous avez choisi: " + horairedebut + " Heure de fin: " + horairefin);
                                 }
                         });
