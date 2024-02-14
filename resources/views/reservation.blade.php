@@ -5,6 +5,7 @@
                 <script src="fullcalendar/lang/fr.js"></script>
                 <script src="fullcalendar/interaction.js"></script>
                 <script>
+                    var currentUserId = @json(auth()->user()->id);
                     var events = @json($events);
                     var filteredEvents = events.filter(function(event){
                         return event.validation === 1;
