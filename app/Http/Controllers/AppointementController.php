@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreAppointementRequest;
 use App\Http\Requests\UpdateAppointementRequest;
 use App\Models\Appointement;
@@ -44,9 +45,10 @@ class AppointementController extends Controller
     {
         $user = auth()->user();
         $appointements = new Appointement;
-        $appointements-> horairedebut = (new \DateTime($request->horairedebut))->getTimestamp();
-        $appointements-> horairefin = (new \DateTime($request->horairefin))->getTimestamp();
+        $appointements-> horairedebut = (new \DateTime($request->horairedebut))->format('Y-m-d H:i:s');
+        $appointements-> horairefin = (new \DateTime($request->horairefin))->format('Y-m-d H:i:s');
         $appointements-> Validation = false;
+        $appointements->Commentaire = null;
         $appointements-> idusers = $user->id;
         $appointements-> save();
 

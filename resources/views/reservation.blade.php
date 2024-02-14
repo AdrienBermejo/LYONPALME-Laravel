@@ -26,9 +26,17 @@
                             hiddenDays:[0,6],
                             events:filteredEvents,
                             dateClick:function(info){
+                                //Les valeurs qui sont prises sont la case cliqué et 1h après pour la fin
                                 let horairedebut= new Date(info.dateStr);
-                                let horairefin= new Date(horairedebut.getTime()+ 60*60*1000); 
-                                $.ajax({
+                                let horairefin= new Date(horairedebut.getTime()+ 60*60*1000);
+                                //Pour formater les dates pour la confirmation
+                                let options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+                                let formattedHorairedebut = horairedebut.toLocaleDateString('fr-FR', options);
+                                let formattedHorairefin = horairefin.toLocaleDateString('fr-FR', options);
+
+                                let confirmation = confirm("Etes vous sûr de vouloir prendre un rendez-vous du " + formattedHorairedebut + " au "+ formattedHorairefin + " ?"); 
+                                if(confirmation) {
+                                    $.ajax({
                                     url:'/appointements',
                                     type:'POST',
                                     data:{
@@ -49,7 +57,8 @@
                                         alert("Erreur, le rendez-vous n'a pas été pris, veuillez réssayer");
                                     }
                                 });
-                                alert("Vous avez choisi: " + horairedebut + " Heure de fin: " + horairefin);
+                                }
+                                
                                 }
                         });
                             calendar.render();
