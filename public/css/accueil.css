@@ -452,12 +452,12 @@ Partenaires
 }
 
 footer {
-    background-color: #f0f0f0; /* Couleur de fond du footer (à adapter selon vos préférences) */
+    background-color: #DC143C; /* Couleur de fond du footer (à adapter selon vos préférences) */
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     border-top: 1px solid #DC143C; /* Ligne de couleur #DC143C en haut du footer */
-    color: #DC143C; /* Couleur du texte "Copyright" */
+    color: #fff; /* Couleur du texte "Copyright" */
 }
