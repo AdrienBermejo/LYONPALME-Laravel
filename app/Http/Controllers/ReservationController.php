@@ -19,9 +19,10 @@ class ReservationController extends Controller
         $appointements = Appointement::all();
         foreach($appointements as $appointement){
             $events[] = [
-                'title' => $appointement->horairedebut,
+                'title' => "Plage horaire déjà prise",
                 'start' => $appointement->horairedebut,
                 'end' => $appointement->horairefin,
+                'validation' => $appointement->Validation,
             ];
     }
         return view('reservation', ['events' => $events]);
