@@ -17,14 +17,19 @@ class ReservationController extends Controller
     {
         $events = array();
         $appointements = Appointement::all();
+        $currentUserId = auth()->user()->id; 
         foreach($appointements as $appointement){
+            $color = ($appointement->idusers === $currentUserId) ? '#008000' : '#4d7fb0';
+            $title = ($appointement->idusers === $currentUserId) ? "Mon rendez-vous" : "Plage horaire déjà prise";
             $events[] = [
-                'title' => $appointement->horairedebut,
+                'title' => $title,
                 'start' => $appointement->horairedebut,
                 'end' => $appointement->horairefin,
-
-        ];
+                'validation' => $appointement->Validation,
+                'userid' => $appointement->idusers,
+                'color'=> $color,
+            ];
     }
-        return view('reservation', ['event => $events']);
+        return view('reservation', ['events' => $events]);
     }
 }

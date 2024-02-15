@@ -7,6 +7,7 @@ use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\AppointementController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReservationAdminController;
 
 // Route d'accueil avec vérification de l'accès
 Route::get('/', [AccessCodeController::class, 'index']);
@@ -25,8 +26,12 @@ Route::middleware('auth')->group(function () {
 });
 
 // Routes pour les rendez-vous
-Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
-Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
+Route::middleware('auth')->group(function() {
+    Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index');
+    Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
+    Route::delete('/appointements/{appointement}',[AppointementController::class,'destroy'])->name('appointements.destroy');
+});
+
 
 // Routes pour l'administration
 Route::middleware(['auth', 'is_admin'])->group(function () {
@@ -37,6 +42,8 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::post('/admin/delete/product', [AdminController::class, 'deleteProduct']);
     Route::post('/admin/delete/partner', [AdminController::class, 'deletePartner']);
     Route::post('/admin/delete/cofinanceur', [AdminController::class, 'deleteCofinanceur']);
+
+    Route::get('/reservationadmin',[ReservationAdminController::class,'index'])->name('reservationadmin');
 
 });
 
