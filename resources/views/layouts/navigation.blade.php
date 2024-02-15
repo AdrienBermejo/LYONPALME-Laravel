@@ -33,8 +33,8 @@
                             </x-dropdown-link>
 
                             <!-- Authentication -->
-                                <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('logout')">
-                                    {{ __('Reservation') }}
+                                <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('reservationadmin')" :active="request()->routeIs('/admin')">
+                                    {{ __('Réservation') }}
                                 </x-dropdown-link>                        
                         </x-slot>
                             </x-dropdown>

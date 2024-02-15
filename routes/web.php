@@ -7,6 +7,7 @@ use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\AppointementController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReservationAdminController;
 
 // Route d'accueil avec vérification de l'accès
 Route::get('/', [AccessCodeController::class, 'index']);
@@ -41,6 +42,8 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::post('/admin/delete/product', [AdminController::class, 'deleteProduct']);
     Route::post('/admin/delete/partner', [AdminController::class, 'deletePartner']);
     Route::post('/admin/delete/cofinanceur', [AdminController::class, 'deleteCofinanceur']);
+
+    Route::get('/reservationadmin',[ReservationAdminController::class,'index'])->name('reservationadmin');
 
 });
 
