@@ -26,6 +26,8 @@
                             hiddenDays:[0,6],
                             events:filteredEvents,
                             dateClick:function(info){
+                                //on met la date d'aujourd'hui
+                                let today = new Date();
                                 //Les valeurs qui sont prises sont la case cliqué et 1h après pour la fin
                                 let horairedebut= new Date(info.dateStr);
                                 let horairefin= new Date(horairedebut.getTime()+ 60*60*1000);
@@ -33,9 +35,12 @@
                                 let options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
                                 let formattedHorairedebut = horairedebut.toLocaleDateString('fr-FR', options);
                                 let formattedHorairefin = horairefin.toLocaleDateString('fr-FR', options);
-
+                                //Verifie si la date est passé ou non
+                                if(horairedebut<today){return;}
+                                //affiche une alert pour vérifier que l'utilisateur veut prendre rendez-vous
                                 let confirmation = confirm("Etes vous sûr de vouloir prendre un rendez-vous du " + formattedHorairedebut + " au "+ formattedHorairefin + " ?"); 
                                 if(confirmation) {
+                                    //Formulaire pour prendre le rendez-vous
                                     $.ajax({
                                     url:'/appointements',
                                     type:'POST',

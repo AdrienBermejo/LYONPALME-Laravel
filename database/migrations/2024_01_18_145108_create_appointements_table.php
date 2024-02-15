@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamp('horairedebut');
             $table->timestamp('horairefin');
             $table->boolean('Validation')->default(false);
+            $table->string('Comment');
             $table->string('Commentaire')->nullable();
             $table->foreignId('idusers')->constrained(table: 'users', indexName:'appointements_users_id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

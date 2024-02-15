@@ -48,6 +48,7 @@ class AppointementController extends Controller
         $appointements-> horairedebut = (new \DateTime($request->horairedebut))->format('Y-m-d H:i:s');
         $appointements-> horairefin = (new \DateTime($request->horairefin))->format('Y-m-d H:i:s');
         $appointements-> Validation = false;
+        $appointements-> Comment = $request->Comment;
         $appointements->Commentaire = null;
         $appointements-> idusers = $user->id;
         $appointements-> save();
