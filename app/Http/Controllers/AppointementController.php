@@ -102,6 +102,9 @@ class AppointementController extends Controller
     public function destroy(Appointement $appointement)
     {
         // À implémenter pour supprimer le rendez-vous
+        $appointement->delete();
+
+        return redirect()->route('appointements.index')->with('success', 'Rendez-vous supprimé.');
     }
 
 

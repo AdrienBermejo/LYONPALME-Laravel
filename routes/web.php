@@ -25,8 +25,12 @@ Route::middleware('auth')->group(function () {
 });
 
 // Routes pour les rendez-vous
-Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index')->middleware('auth');
-Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
+Route::middleware('auth')->group(function() {
+    Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index');
+    Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
+    Route::delete('/appointements/{appointement}',[AppointementController::class,'destroy'])->name('appointements.destroy');
+});
+
 
 // Routes pour l'administration
 Route::middleware(['auth', 'is_admin'])->group(function () {

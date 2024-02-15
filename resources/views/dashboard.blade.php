@@ -19,6 +19,37 @@
                                     <p>Validation: Non validé</p>
                                 @endif
                                 <p> Commentaire de Terradouceurs : {{ $appointement-> Commentaire}}</p>
+                                @if(!$appointement->Validation)
+                                    <x-danger-button
+                                        x-data=""
+                                        x-on:click.prevent="$dispatch('open-modal', 'appointement-delete-{{ $appointement->id }}')"
+                                    >{{ __('X') }}</x-danger-button>
+
+                                    <x-modal name="appointement-delete-{{ $appointement->id }}" focusable>
+                                        <form method="post" action="{{ route('appointements.destroy', $appointement) }}" class="p-6">
+                                            @csrf
+                                            @method('delete')
+                                            <div>
+                                                <h2 class="text-lg font-medium font-folty text-framboise">
+                                                    {{ __('Êtes vous sûr de vouloir supprimer votre rendez-vous ?') }}
+                                                </h2>
+
+                                                <p class="mt-1 text-sm text-framboise">
+                                                    {{ __('Une fois votre rendez-vous supprimé, vous ne pourrez pas le récuperer') }}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <x-danger-button class="ms-3">
+                                                    {{ __('Supprimer Rendez-vous') }}
+                                                </x-danger-button>
+
+                                                <x-secondary-button x-on:click="$dispatch('close')">
+                                                    {{ __('Annuler') }}
+                                                </x-secondary-button>
+                                            </div>
+                                        </form>
+                                    </x-modal>
+                                @endif
                             </div>
                         @endforeach
                     @endif
@@ -26,4 +57,5 @@
             </div>
         </div>
     </div>
+    
 </x-app-layout>
