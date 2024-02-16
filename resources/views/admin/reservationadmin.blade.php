@@ -11,15 +11,17 @@
                     @else
                         @foreach ($appointements as $appointement)
                             <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise mb-4">
-                                <h1>{{ optional($appointement->user)->name }}</h1>
+                                <h1 class="text-framboisehover">{{ optional($appointement->user)->name ?? 'Pas de nom'}} {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}}</h1>
+                                <h1 class="text-framboisehover">Exploitation: {{ optional($appointement->user)->Exploitation_name ?? 'Pas de nom d exploitation' }}</h1>
                                 <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
                                 <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
+                                <h2>Téléphone : {{ optional($appointement->user)->telephone ?? 'Pas de téléphone'}} <br> Email : {{ optional($appointement->user)->email ?? 'Pas d email'}}</h2>
                                 @if($appointement->Validation)
                                     <p>Validation: Validé</p>
                                 @else
                                     <p>Validation: Non validé</p>
                                 @endif
-                                <p> Commentaire de Terradouceurs : {{ $appointement-> Commentaire}}</p>
+                                <p> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
                                 @if(!$appointement->Validation)
                                     <x-danger-button
                                         x-data=""

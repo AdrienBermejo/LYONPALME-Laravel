@@ -98,18 +98,31 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-white border-b border-gray-100 rounded-lg">
         <div class="pt-2 pb-3 space-y-1">
+        
             <x-responsive-nav-link class="text-framboise" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
                 {{ __('Réservation')}}
             </x-responsive-nav-link>
-            @if(auth()->user()->is_admin)
-                <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
-                    {{__('Administration')}}
-                </x-responsive-nav-link>
-            @endif
         </div>
+
+        @if(auth()->user()->is_admin)
+            <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="px-4">
+                    <div class="font-medium text-base text-framboisehover">{{ 'Administration'}}</div>
+                </div>
+        
+                <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
+                    {{__('Accueil')}}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('reservationadmin')" :active="request()->routeIs('/admin')">
+                    {{ __('Réservation') }}
+                </x-responsive-nav-link>  
+
+        </div>
+        @endif
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

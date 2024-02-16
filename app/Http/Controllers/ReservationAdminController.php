@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreAppointementRequest;
 use App\Http\Requests\UpdateAppointementRequest;
 use App\Models\Appointement;
+use App\Models\User;
 
 class ReservationAdminController extends Controller
 {

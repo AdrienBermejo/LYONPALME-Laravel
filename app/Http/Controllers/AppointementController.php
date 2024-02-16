@@ -66,6 +66,13 @@ class AppointementController extends Controller
     */
     public function show($idusers)
     {
+        $appointment = Appointment::find($id); // get the appointment
+        $user = $appointment->user; // get the user related to the appointment
+        $name = $user->name; // get the user's name
+
+
+        // Now you can return this data to a view or wherever else it's needed
+        return view('reservationadmin', ['appointment' => $appointment, 'user' => $user, 'name' => $name]);
     // À implémenter pour afficher les détails d'un rendez-vous
     }
         
