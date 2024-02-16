@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/appointements', [AppointementController::class,'index'])->name('appointements.index');
     Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
     Route::delete('/appointements/{appointement}',[AppointementController::class,'destroy'])->name('appointements.destroy');
+    Route::patch('/appointements/{appointement}',[AppointementController::class,'update'])->name('appointements.update');
 });
 
 
@@ -44,7 +45,6 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::post('/admin/delete/cofinanceur', [AdminController::class, 'deleteCofinanceur']);
 
     Route::get('/reservationadmin',[ReservationAdminController::class,'index'])->name('reservationadmin');
-
 });
 
 // Route pour la page d'accueil du site

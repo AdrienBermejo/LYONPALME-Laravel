@@ -22,6 +22,41 @@
                                     <p>Validation: Non validé</p>
                                 @endif
                                 <p> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
+                                
+                                <x-danger-button
+                                    x-data=""
+                                    x-on:click.prevent="$dispatch('open-modal', 'appointement-edit-{{ $appointement->id }}')"
+                                    >{{ __('Modifier') }}</x-danger-button>
+
+                                <x-modal name="appointement-edit-{{ $appointement->id }}" focusable>
+                                    <form method="post" action="{{ route('appointements.update', $appointement) }}" class="p-6">
+                                        @csrf
+                                        @method('patch')
+                                        <div>
+                                            <label for="horairedebut">Horaire de début:</label>
+                                            <input type="datetime-local" id="horairedebut" name="horairedebut" value="{{ $appointement->horairedebut }}">
+
+                                            <label for="horairefin">Horaire de fin:</label>
+                                            <input type="datetime-local" id="horairefin" name="horairefin" value="{{ $appointement->horairefin }}">
+
+                                            <label for="Validation">Validation:</label>
+                                            <input type="checkbox" id="Validation" name="Validation" {{ $appointement->Validation ? 'checked' : '' }}>
+
+                                            <label for="Commentaire">Commentaire:</label>
+                                            <textarea id="Commentaire" name="Commentaire">{{ $appointement->Commentaire }}</textarea>
+                                        </div>
+                                        <div>
+                                            <x-danger-button class="ms-3">
+                                                {{ __('Update Appointment') }}
+                                            </x-danger-button>
+
+                                            <x-secondary-button x-on:click="$dispatch('close')">
+                                                {{ __('Cancel') }}
+                                            </x-secondary-button>
+                                        </div>
+                                    </form>
+                                </x-modal>
+
                                 @if(!$appointement->Validation)
                                     <x-danger-button
                                         x-data=""

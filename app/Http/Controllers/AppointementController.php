@@ -98,6 +98,22 @@ class AppointementController extends Controller
     public function update(UpdateAppointementRequest $request, Appointement $appointement)
     {
         // À implémenter pour mettre à jour les informations du rendez-vous
+        $request->validate([
+            'horairedebut' => 'required|date',
+            'horairefin' => 'required|date',
+            'Validation' => 'required|boolean',
+            'Commentaire' => 'nullable|string',
+        ]);
+    
+        // Update the appointment
+        $appointment->horairedebut = $request->horairedebut;
+        $appointment->horairefin = $request->horairefin;
+        $appointment->Validation = $request->Validation;
+        $appointment->Commentaire = $request->Commentaire;
+        $appointment->save();
+    
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Appointment updated successfully!');
     }
 
     /**
@@ -111,7 +127,7 @@ class AppointementController extends Controller
         // À implémenter pour supprimer le rendez-vous
         $appointement->delete();
 
-        return redirect()->route('appointements.index')->with('success', 'Rendez-vous supprimé.');
+        return redirect()->back()->with('success', 'Rendez-vous supprimé.');
     }
 
 
