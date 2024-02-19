@@ -9,7 +9,7 @@
                     @if($appointements->isEmpty())
                         <p class="ps-5 py-5 font-folty text-framboise border-solid mb-4">Aucun rendez-vous à valider</p>
                     @else
-                        @foreach ($appointements as $appointement)
+                        @foreach($appointements as $appointement)
                             <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise mb-4">
                                 <h1 class="text-framboisehover">{{ optional($appointement->user)->name ?? 'Pas de nom'}} {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}}</h1>
                                 <h1 class="text-framboisehover">Exploitation: {{ optional($appointement->user)->Exploitation_name ?? 'Pas de nom d exploitation' }}</h1>
@@ -18,8 +18,8 @@
                                 <h2>Téléphone : {{ optional($appointement->user)->telephone ?? 'Pas de téléphone'}} <br> Email : {{ optional($appointement->user)->email ?? 'Pas d email'}}</h2>
                                 @if($appointement->Validation)
                                     <p>Validation: Validé</p>
-                                @else
-                                    <p>Validation: Non validé</p>
+                                    @else
+                                        <p>Validation: Non validé</p>
                                 @endif
                                 <p> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
                                 
@@ -33,22 +33,22 @@
                                         @csrf
                                         @method('patch')
                                         <div>
-                                            <label for="horairedebut">Horaire de début:</label>
+                                            <x-input-label for="horairedebut" :value="__('Horaire de début:')"/>
                                             <input type="datetime-local" id="horairedebut" name="horairedebut" value="{{ $appointement->horairedebut }}">
 
-                                            <label for="horairefin">Horaire de fin:</label>
+                                            <x-input-label for="horairefin" :value="__('Horaire de fin:')"/>
                                             <input type="datetime-local" id="horairefin" name="horairefin" value="{{ $appointement->horairefin }}">
 
-                                            <label for="Validation">Validation:</label>
+                                            <x-input-label for="Validation" :value="__('Validation:')"/>
                                             <input type="checkbox" id="Validation" name="Validation" {{ $appointement->Validation ? 'checked' : '' }}>
 
-                                            <label for="Commentaire">Commentaire:</label>
+                                            <x-input-label for="Commentaire" :value="__('Commentaire:')"/>
                                             <textarea id="Commentaire" name="Commentaire">{{ $appointement->Commentaire }}</textarea>
                                         </div>
                                         <div>
-                                            <x-danger-button class="ms-3">
-                                                {{ __('Update Appointment') }}
-                                            </x-danger-button>
+                                            <x-primary-button class="ms-3">
+                                                {{ __('Mettre à jour') }}
+                                            </x-primary-button>
 
                                             <x-secondary-button x-on:click="$dispatch('close')">
                                                 {{ __('Cancel') }}
@@ -95,5 +95,4 @@
             </div>
         </div>
     </div>
-    
 </x-app-layout>

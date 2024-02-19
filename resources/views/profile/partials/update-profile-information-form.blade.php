@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-framboise">
-            {{ __("Modifier vos informations personnelles et d'entreprises") }}
+            {{ __("Modifier vos informations personnelles et d'entreprise") }}
         </p>
     </header>
 
