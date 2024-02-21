@@ -46,7 +46,7 @@
                                             <textarea id="Commentaire" name="Commentaire">{{ $appointement->Commentaire }}</textarea>
                                         </div>
                                         <div>
-                                            <x-primary-button class="ms-3">
+                                            <x-primary-button type="submit" class="ms-3">
                                                 {{ __('Mettre à jour') }}
                                             </x-primary-button>
 

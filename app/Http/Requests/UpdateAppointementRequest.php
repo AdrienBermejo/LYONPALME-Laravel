@@ -23,6 +23,11 @@ class UpdateAppointementRequest extends FormRequest
     {
         return [
             //
+            'horairedebut' => 'required|date',
+            'horairefin' => 'required|date|after:horairedebut',
+            'Validation' => 'required|boolean',
+            'Comment' => 'nullable|string',
+            'Commentaire' => 'nullable|string',
         ];
     }
 }
