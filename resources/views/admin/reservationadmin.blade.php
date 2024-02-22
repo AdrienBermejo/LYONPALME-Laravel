@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <x-app-layout>
     <div class="py-12 h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -25,8 +28,8 @@
                                 
                                 <x-danger-button
                                     x-data=""
-                                    x-on:click.prevent="$dispatch('open-modal', 'appointement-edit-{{ $appointement->id }}')"
-                                    >{{ __('Modifier') }}</x-danger-button>
+                                    x-on:click.prevent="$dispatch('open-modal', { name: 'appointement-edit-{{ $appointement->id }}' })"
+                                >{{ __('Modifier') }}</x-danger-button>
 
                                 <x-modal name="appointement-edit-{{ $appointement->id }}" focusable>
                                     <form method="post" action="{{ route('appointements.update', $appointement) }}" class="p-6">
@@ -56,6 +59,7 @@
                                         </div>
                                     </form>
                                 </x-modal>
+
 
                                 @if(!$appointement->Validation)
                                     <x-danger-button
@@ -96,3 +100,4 @@
         </div>
     </div>
 </x-app-layout>
+@endsection
