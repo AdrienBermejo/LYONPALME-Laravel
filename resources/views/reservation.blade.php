@@ -45,8 +45,8 @@
                                     url:'/appointements',
                                     type:'POST',
                                     data:{
-                                        horairedebut:horairedebut.toISOString(),
-                                        horairefin:horairefin.toISOString(),
+                                        horairedebut:new Date(new Date(info.dateStr).getTime() + 60*60*1000).toISOString(),
+                                        horairefin:new Date(new Date(info.dateStr).getTime() + 60*60*1000 + 60*60*1000).toISOString(),
                                     },
                                     headers:{
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
