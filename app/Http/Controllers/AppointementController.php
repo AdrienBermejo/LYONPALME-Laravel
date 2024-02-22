@@ -110,6 +110,7 @@ class AppointementController extends Controller
         $appointement->horairedebut = Carbon::parse($request->horairedebut)->toDateTimeString();
         $appointement->horairefin = Carbon::parse($request->horairefin)->toDateTimeString();
         $appointement->Validation = $validation;
+        $appointement->Comment = $request->input('Comment');
         $appointement->Commentaire = $request->input('Commentaire');
         $appointement->save();
     

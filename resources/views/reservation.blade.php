@@ -38,7 +38,8 @@
                                 //Verifie si la date est passé ou non
                                 if(horairedebut<today){return;}
                                 //affiche une alert pour vérifier que l'utilisateur veut prendre rendez-vous
-                                let confirmation = confirm("Etes vous sûr de vouloir prendre un rendez-vous du " + formattedHorairedebut + " au "+ formattedHorairefin + " ?"); 
+                                let commentaire = prompt("Veuillez renseigner le motif de votre prise de rendez-vous: ");
+                                let confirmation = confirm("Etes vous sûr de vouloir prendre un rendez-vous du " + formattedHorairedebut + " au "+ formattedHorairefin + " ? Votre motif est celui ci: " + commentaire); 
                                 if(confirmation) {
                                     //Formulaire pour prendre le rendez-vous
                                     $.ajax({
@@ -47,6 +48,7 @@
                                     data:{
                                         horairedebut:new Date(new Date(info.dateStr).getTime() + 60*60*1000).toISOString(),
                                         horairefin:new Date(new Date(info.dateStr).getTime() + 60*60*1000 + 60*60*1000).toISOString(),
+                                        Comment : commentaire
                                     },
                                     headers:{
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

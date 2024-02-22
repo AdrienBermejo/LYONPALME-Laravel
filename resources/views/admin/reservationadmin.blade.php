@@ -21,7 +21,8 @@
                                     @else
                                         <p>Validation: Non validé</p>
                                 @endif
-                                <p> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
+                                <p class="text-framboisehover">Commentaire de {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}} : {{ $appointement-> Comment ?? 'Pas encore de commentaire'}}</p>
+                                <p class="text-framboisehover"> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
                                 
                                 <x-danger-button
                                     x-data=""
@@ -51,7 +52,7 @@
                                             </x-primary-button>
 
                                             <x-secondary-button x-on:click="$dispatch('close')">
-                                                {{ __('Cancel') }}
+                                                {{ __('Annuler') }}
                                             </x-secondary-button>
                                         </div>
                                     </form>
