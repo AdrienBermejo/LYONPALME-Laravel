@@ -21,7 +21,7 @@ class AppointementController extends Controller
         $user = auth()->user();
 
         // Récupère les rendez-vous pour cet utilisateur
-        $appointements = $user->appointements()->orderBy('created_at','desc')->get();
+        $appointements = $user->appointements()->orderBy('updated_at','desc')->get();
 
         // Affiche les rendez-vous à la vue du tableau de bord
         return view('dashboard', ['appointements' => $appointements]);
@@ -110,12 +110,24 @@ class AppointementController extends Controller
         $appointement->horairedebut = Carbon::parse($request->horairedebut)->toDateTimeString();
         $appointement->horairefin = Carbon::parse($request->horairefin)->toDateTimeString();
         $appointement->Validation = $validation;
-        $appointement->Comment = $request->input('Comment');
+        //$appointement->Comment = $request->input('Comment');
         $appointement->Commentaire = $request->input('Commentaire');
         $appointement->save();
     
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Appointment updated successfully!');
+    }
+
+    public function updateComment(UpdateAppointementRequest $request, Appointement $appointement)
+    {
+        if (!$appointement){
+            return redirect()->back()->with('error','Appointement not found!');
+        }
+
+        $appointement->Comment=$request->input('Comment');
+        $appointement->save();
+
+        return redirect()->back()->with('success','Comment updated successfully !');
     }
 
     /**

@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function() {
     Route::post('/appointements',[AppointementController::class,'store'])->name('appointements.store');
     Route::delete('/appointements/{appointement}',[AppointementController::class,'destroy'])->name('appointements.destroy');
     Route::patch('/appointements/{appointement}',[AppointementController::class,'update'])->name('appointements.update');
+    Route::patch('/appointements/{appointement}/comment',[AppointementController::class,'updateComment'])->name('appointements.updateComment');
 });
 
 

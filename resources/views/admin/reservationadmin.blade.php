@@ -71,7 +71,7 @@
                                             @method('delete')
                                             <div>
                                                 <h2 class="text-lg font-medium font-folty text-framboise">
-                                                    {{ __('Êtes vous sûr de vouloir supprimer votre rendez-vous ?') }}
+                                                    {{ __('Êtes vous sûr de vouloir supprimer ce rendez-vous ?') }}
                                                 </h2>
 
                                                 <p class="mt-1 text-sm text-framboise">

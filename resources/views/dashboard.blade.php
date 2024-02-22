@@ -29,7 +29,7 @@
                                 >{{ __('Modifier') }}</x-danger-button>
 
                                 <x-modal name="appointement-edit-{{ $appointement->id }}" focusable>
-                                    <form method="post" action="{{ route('appointements.update', $appointement) }}" class="p-6">
+                                    <form method="post" action="{{ route('appointements.updateComment', $appointement) }}" class="p-6">
                                         @csrf
                                         @method('patch')
                                         <div>
