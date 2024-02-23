@@ -44,9 +44,10 @@
                                             <input type="checkbox" id="Validation" name="Validation" {{ $appointement->Validation ? 'checked' : '' }}>
 
                                             <x-input-label for="Commentaire" :value="__('Commentaire:')"/>
-                                            <textarea id="Commentaire" name="Commentaire">{{ $appointement->Commentaire }}</textarea>
+                                            <textarea id="Commentaire" name="Commentaire" class="resize-none w-full" oninput="this.style.height = ''; this.style.height
+                                            = this.scrollHeight + 'px'">{{ $appointement->Commentaire }}</textarea>
                                         </div>
-                                        <div>
+                                        <div class="flex justify-end">
                                             <x-primary-button class="ms-3">
                                                 {{ __('Mettre à jour') }}
                                             </x-primary-button>
@@ -69,7 +70,7 @@
                                         <form method="post" action="{{ route('appointements.destroy', $appointement) }}" class="p-6">
                                             @csrf
                                             @method('delete')
-                                            <div>
+                                            <div class="mb-4">
                                                 <h2 class="text-lg font-medium font-folty text-framboise">
                                                     {{ __('Êtes vous sûr de vouloir supprimer ce rendez-vous ?') }}
                                                 </h2>
@@ -78,7 +79,7 @@
                                                     {{ __('Une fois votre rendez-vous supprimé, vous ne pourrez pas le récuperer') }}
                                                 </p>
                                             </div>
-                                            <div>
+                                            <div class="flex justify-end space-x-10">
                                                 <x-danger-button class="ms-3">
                                                     {{ __('Supprimer Rendez-vous') }}
                                                 </x-danger-button>
