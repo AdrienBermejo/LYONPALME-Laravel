@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreAppointementRequest;
 use App\Http\Requests\UpdateAppointementRequest;
 use App\Models\Appointement;
+use Carbon\Carbon;
 
 class AppointementController extends Controller
 {
@@ -20,7 +21,7 @@ class AppointementController extends Controller
         $user = auth()->user();
 
         // Récupère les rendez-vous pour cet utilisateur
-        $appointements = $user->appointements()->orderBy('created_at','desc')->get();
+        $appointements = $user->appointements()->orderBy('updated_at','desc')->get();
 
         // Affiche les rendez-vous à la vue du tableau de bord
         return view('dashboard', ['appointements' => $appointements]);
@@ -97,23 +98,36 @@ class AppointementController extends Controller
     */
     public function update(UpdateAppointementRequest $request, Appointement $appointement)
     {
-        // À implémenter pour mettre à jour les informations du rendez-vous
-        $request->validate([
-            'horairedebut' => 'required|date',
-            'horairefin' => 'required|date',
-            'Validation' => 'required|boolean',
-            'Commentaire' => 'nullable|string',
-        ]);
-    
+           
+        if (!$appointement) {
+            // Handle the case where the appointment does not exist
+            return redirect()->back()->with('error', 'Appointment not found!');
+        }
+        $validation = $request->has('Validation') ? true : false;
+
+
         // Update the appointment
-        $appointment->horairedebut = $request->horairedebut;
-        $appointment->horairefin = $request->horairefin;
-        $appointment->Validation = $request->Validation;
-        $appointment->Commentaire = $request->Commentaire;
-        $appointment->save();
+        $appointement->horairedebut = Carbon::parse($request->horairedebut)->toDateTimeString();
+        $appointement->horairefin = Carbon::parse($request->horairefin)->toDateTimeString();
+        $appointement->Validation = $validation;
+        //$appointement->Comment = $request->input('Comment');
+        $appointement->Commentaire = $request->input('Commentaire');
+        $appointement->save();
     
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Appointment updated successfully!');
+    }
+
+    public function updateComment(UpdateAppointementRequest $request, Appointement $appointement)
+    {
+        if (!$appointement){
+            return redirect()->back()->with('error','Appointement not found!');
+        }
+
+        $appointement->Comment=$request->input('Comment');
+        $appointement->save();
+
+        return redirect()->back()->with('success','Comment updated successfully !');
     }
 
     /**

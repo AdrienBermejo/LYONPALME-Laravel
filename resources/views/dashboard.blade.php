@@ -18,7 +18,37 @@
                                 @else
                                     <p>Validation: Non validé</p>
                                 @endif
-                                <p> Commentaire de Terradouceurs : {{ $appointement-> Commentaire}}</p>
+                                <p> Votre Commentaire : </p>
+                                <p>{{ $appointement-> Comment ?? 'Veuillez renseigner votre demande au plus vite'}}</p>
+                                <p> Commentaire de Terradouceurs : </p>
+                                <p>{{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
+
+                                <x-danger-button
+                                    x-data=""
+                                    x-on:click.prevent="$dispatch('open-modal','appointement-edit-{{ $appointement->id }}')"
+                                >{{ __('Modifier') }}</x-danger-button>
+
+                                <x-modal name="appointement-edit-{{ $appointement->id }}" focusable>
+                                    <form method="post" action="{{ route('appointements.updateComment', $appointement) }}" class="p-6">
+                                        @csrf
+                                        @method('patch')
+                                        <div>
+                                            <x-input-label for="Comment" :value="__('Votre Commentaire:')"/>
+                                            <textarea id="Comment" name="Comment" class="resize-none w-full" oninput="this.style.height = ''; this.style.height
+                                            = this.scrollHeight + 'px'">{{ $appointement->Comment }}</textarea>
+                                        </div>
+                                        <div class="flex justify-end">
+                                            <x-primary-button class="ms-3">
+                                                {{ __('Mettre à jour') }}
+                                            </x-primary-button>
+
+                                            <x-secondary-button x-on:click="$dispatch('close')">
+                                                {{ __('Annuler') }}
+                                            </x-secondary-button>
+                                        </div>
+                                    </form>
+                                </x-modal>
+
                                 @if(!$appointement->Validation)
                                     <x-danger-button
                                         x-data=""
@@ -29,7 +59,7 @@
                                         <form method="post" action="{{ route('appointements.destroy', $appointement) }}" class="p-6">
                                             @csrf
                                             @method('delete')
-                                            <div>
+                                            <div class="mb-4">
                                                 <h2 class="text-lg font-medium font-folty text-framboise">
                                                     {{ __('Êtes vous sûr de vouloir supprimer votre rendez-vous ?') }}
                                                 </h2>
@@ -38,7 +68,7 @@
                                                     {{ __('Une fois votre rendez-vous supprimé, vous ne pourrez pas le récuperer') }}
                                                 </p>
                                             </div>
-                                            <div>
+                                            <div class="flex justify-end space-x-10">
                                                 <x-danger-button class="ms-3">
                                                     {{ __('Supprimer Rendez-vous') }}
                                                 </x-danger-button>

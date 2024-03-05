@@ -21,12 +21,13 @@
                                     @else
                                         <p>Validation: Non validé</p>
                                 @endif
-                                <p> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
+                                <p class="text-framboisehover">Commentaire de {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}} : {{ $appointement-> Comment ?? 'Pas encore de commentaire'}}</p>
+                                <p class="text-framboisehover"> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
                                 
                                 <x-danger-button
                                     x-data=""
-                                    x-on:click.prevent="$dispatch('open-modal', 'appointement-edit-{{ $appointement->id }}')"
-                                    >{{ __('Modifier') }}</x-danger-button>
+                                    x-on:click.prevent="$dispatch('open-modal','appointement-edit-{{ $appointement->id }}')"
+                                >{{ __('Modifier') }}</x-danger-button>
 
                                 <x-modal name="appointement-edit-{{ $appointement->id }}" focusable>
                                     <form method="post" action="{{ route('appointements.update', $appointement) }}" class="p-6">
@@ -43,7 +44,8 @@
                                             <input type="checkbox" id="Validation" name="Validation" {{ $appointement->Validation ? 'checked' : '' }}>
 
                                             <x-input-label for="Commentaire" :value="__('Commentaire:')"/>
-                                            <textarea id="Commentaire" name="Commentaire">{{ $appointement->Commentaire }}</textarea>
+                                            <textarea id="Commentaire" name="Commentaire" class="resize-none w-full" oninput="this.style.height = ''; this.style.height
+                                            = this.scrollHeight + 'px'">{{ $appointement->Commentaire }}</textarea>
                                         </div>
                                         <div>
                                             <x-primary-button type="submit" class="ms-3">
@@ -51,11 +53,12 @@
                                             </x-primary-button>
 
                                             <x-secondary-button x-on:click="$dispatch('close')">
-                                                {{ __('Cancel') }}
+                                                {{ __('Annuler') }}
                                             </x-secondary-button>
                                         </div>
                                     </form>
                                 </x-modal>
+
 
                                 @if(!$appointement->Validation)
                                     <x-danger-button
@@ -67,16 +70,16 @@
                                         <form method="post" action="{{ route('appointements.destroy', $appointement) }}" class="p-6">
                                             @csrf
                                             @method('delete')
-                                            <div>
+                                            <div class="mb-4">
                                                 <h2 class="text-lg font-medium font-folty text-framboise">
-                                                    {{ __('Êtes vous sûr de vouloir supprimer votre rendez-vous ?') }}
+                                                    {{ __('Êtes vous sûr de vouloir supprimer ce rendez-vous ?') }}
                                                 </h2>
 
                                                 <p class="mt-1 text-sm text-framboise">
                                                     {{ __('Une fois votre rendez-vous supprimé, vous ne pourrez pas le récuperer') }}
                                                 </p>
                                             </div>
-                                            <div>
+                                            <div class="flex justify-end space-x-10">
                                                 <x-danger-button class="ms-3">
                                                     {{ __('Supprimer Rendez-vous') }}
                                                 </x-danger-button>
