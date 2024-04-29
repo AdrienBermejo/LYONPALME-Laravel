@@ -2,7 +2,7 @@
     <header>
     <div class="logo-menu">
         <div class="logo1">
-            <img src="{{ asset('css/img/poterra.png') }}" alt="Logo1">
+            <img src="{{ asset('css/img/LogoLPMini.webp') }}" alt="Logo1">
         </div>
         <ul class="menu">
             <li><a href="#">La Conserverie</a></li>

@@ -16,7 +16,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased min-h-screen bg-[url('../../public/css/img/vegetablesbackground.jpg')] bg-cover bg-fixed bg-repeat">
+    <body class="font-sans antialiased min-h-screen bg-[url('../../public/css/img/Piscine3Saint-Fons.jpeg')] bg-cover bg-fixed bg-repeat">
         <div class="min-h-screen">
             @include('layouts.navigation')
 

@@ -2,8 +2,8 @@
             @font-face {
     font-family: 'folty'; src: url('fonts/folty-semi-bold.otf') format('opentype');
                         }
-            x-app-layout{color: #DC013C; font-family:'folty', sans-serif;}    
-            body{color: #DC013C;font-family:'folty',sans-serif;}
+            x-app-layout{color: #8214dc; font-family:'folty', sans-serif;}    
+            body{color: #8214dc;font-family:'folty',sans-serif;}
 </style>
 
 <x-app-layout>
