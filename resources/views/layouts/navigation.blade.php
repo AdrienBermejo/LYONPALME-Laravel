@@ -28,13 +28,13 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link class="text-blue-400 hover:text-blue-400hover" :href="route('admin.index')" :active="request()->routeIs('/admin')">
-                                {{ __('Accueil') }}
+                                <x-dropdown-link class="text-blue-400 hover:text-blue-400hover" :href="route('reservation')" :active="request()->routeIs('/reservation')">
+                                {{__('Planning Création')}}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
                                 <x-dropdown-link class="text-blue-400 hover:text-blue-400hover" :href="route('reservationadmin')" :active="request()->routeIs('/admin')">
-                                    {{ __('Réservation') }}
+                                    {{ __('Planning Modification') }}
                                 </x-dropdown-link>                        
                         </x-slot>
                             </x-dropdown>
@@ -42,9 +42,6 @@
                     @endif
                     <x-nav-link class="text-blue-400 hover:text-blue-400hover" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                         {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link class="text-blue-400 hover:text-blue-400hover" :href="route('reservation')" :active="request()->routeIs('/reservation')">
-                        {{__('Réservation')}}
                     </x-nav-link>
                 </div>
             </div>
@@ -102,9 +99,7 @@
             <x-responsive-nav-link class="text-blue-400" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
-                {{ __('Réservation')}}
-            </x-responsive-nav-link>
+            
         </div>
 
         @if(auth()->user()->is_admin)
@@ -113,12 +108,12 @@
                     <div class="font-medium text-base text-blue-400hover">{{ 'Administration'}}</div>
                 </div>
         
-                <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
-                    {{__('Accueil')}}
+                <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
+                {{ __('Planning Création')}}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('reservationadmin')" :active="request()->routeIs('/admin')">
-                    {{ __('Réservation') }}
+                    {{ __('Planning Modification') }}
                 </x-responsive-nav-link>  
 
         </div>

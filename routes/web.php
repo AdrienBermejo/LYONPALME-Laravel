@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function() {
     Route::delete('/appointements/{appointement}',[AppointementController::class,'destroy'])->name('appointements.destroy');
     Route::patch('/appointements/{appointement}',[AppointementController::class,'update'])->name('appointements.update');
     Route::patch('/appointements/{appointement}/comment',[AppointementController::class,'updateComment'])->name('appointements.updateComment');
+    Route::delete('/appointements/{appointement}/deleteOwner',[AppointementController::class,'deleteOwner'])->name('appointements.deleteOwner');
 });
 
 
@@ -46,13 +47,12 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::post('/admin/delete/cofinanceur', [AdminController::class, 'deleteCofinanceur']);
 
     Route::get('/reservationadmin',[ReservationAdminController::class,'index'])->name('reservationadmin');
+    Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
 });
 
 // Route pour la page d'accueil du site
 Route::get('/accueil', [AccueilController::class, 'index']);
 
-// Route pour la page de réservation
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
 
 // Authentification
 require __DIR__.'/auth.php';

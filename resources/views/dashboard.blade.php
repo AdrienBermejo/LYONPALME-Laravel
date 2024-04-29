@@ -56,7 +56,7 @@
                                     >{{ __('X') }}</x-danger-button>
 
                                     <x-modal name="appointement-delete-{{ $appointement->id }}" focusable>
-                                        <form method="post" action="{{ route('appointements.destroy', $appointement) }}" class="p-6">
+                                        <form method="post" action="{{ route('appointements.deleteOwner', $appointement) }}" class="p-6">
                                             @csrf
                                             @method('delete')
                                             <div class="mb-4">

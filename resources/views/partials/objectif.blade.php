@@ -1,27 +1,81 @@
 <section class="objectif">
-    <div class="logo">
-        <img src="{{ asset('css/img/label.png') }}" alt="Logo">
-    </div>
-    <div class="separator"></div>
-    <div class="content">
-        <div class="left-content">
-            <h1>Objectif</h1>
-            <ul>
-                <li>Vous gagnez du temps pour<br>gérer vos autres activités.</li>
-                <li>Vous répondez aux normes<br>sanitaires et d'étiquettage en<br>vigueur.</li>
-                <li>Vous avez la garantie d'une<br>traçabilité complète de vos<br>produits transformés.</li>
-                <li>Vous diversifiez votre offre<br>produit.</li>
-                <li>Vous avez jusqu'à 3 ans pour<br>vendre votre production</li>
-            </ul>
+    <div>
+            @push('scripts')
+                <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="fullcalendar/lang/fr.js"></script>
+                <script src="fullcalendar/interaction.js"></script>
+                <script>
+                    var events = @json($events);
+                    var filteredEvents = events.filter(function(event){
+                        return event.validation === 1;
+                    });
+                    console.log(filteredEvents);
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var calendarEl = document.getElementById('calendar');
+                        var calendar = new FullCalendar.Calendar(calendarEl, {
+                            locale:'fr',
+                            weekNumbers: true,
+                            initialView: 'timeGridWeek',
+                            slotMinTime: '8:00:00',
+                            slotMaxTime: '17:00:00',
+                            slotDuration: '01:00:00',
+                            allDaySlot: false,
+                            expandRows:true,
+                            hiddenDays:[0,6],
+                            events:filteredEvents,
+                            dateClick:function(info){
+                                //on met la date d'aujourd'hui
+                                let today = new Date();
+                                //Les valeurs qui sont prises sont la case cliqué et 1h après pour la fin
+                                let horairedebut= new Date(info.dateStr);
+                                let horairefin= new Date(horairedebut.getTime()+ 60*60*1000);
+                                //Pour formater les dates pour la confirmation
+                                let options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+                                let formattedHorairedebut = horairedebut.toLocaleDateString('fr-FR', options);
+                                let formattedHorairefin = horairefin.toLocaleDateString('fr-FR', options);
+                                //Verifie si la date est passé ou non
+                                if(horairedebut<today){return;}
+                                //affiche une alert pour vérifier que l'utilisateur veut prendre rendez-vous
+                                let commentaire = prompt("Veuillez renseigner le motif de votre prise de rendez-vous: ");
+                                let confirmation = confirm("Etes vous sûr de vouloir prendre un rendez-vous du " + formattedHorairedebut + " au "+ formattedHorairefin + " ? Votre motif est celui ci: " + commentaire); 
+                                if(confirmation) {
+                                    //Formulaire pour prendre le rendez-vous
+                                    $.ajax({
+                                    url:'/appointements',
+                                    type:'POST',
+                                    data:{
+                                        horairedebut:new Date(new Date(info.dateStr).getTime() + 60*60*1000).toISOString(),
+                                        horairefin:new Date(new Date(info.dateStr).getTime() + 60*60*1000 + 60*60*1000).toISOString(),
+                                        Comment : commentaire
+                                    },
+                                    headers:{
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                    success:function(response){
+                                        if(response.success){
+                                            alert("Rendez-vous pris en compte !");
+                                        } else {
+                                            alert("Erreur, le rendez-vous n'a pas été pris, veuillez réssayer");
+                                        }
+                                    },
+                                    error:function(response){
+                                        alert("Erreur, le rendez-vous n'a pas été pris, veuillez réssayer");
+                                    }
+                                });
+                                }
+                                
+                                }
+                        });
+                            calendar.render();
+                        });
+                </script>
+            @endpush
+            <style>
+                .fc-agendaWeek-view tr, .fc-agendaDay-view tr {height: 40px;}
+            </style>
         </div>
-        <div class="right-content">
-            <h1>D'Autres Points</h1>
-            <ul>
-                <li>Vous disposez d'une offre complémentaire<br>pour vos circuits courts par lot d'environ<br>70kg de produits bruts (selon recette et<br>conditionnement).</li>
-                <li>Vous limitez le gaspillage de votre production<br>agricole.</li>
-                <li>Vous limitez l'empreinte carbone en favorisant<br>les circuits courts.</li>
-                <li>Vous favorisez l'emploi de personnes porteuses<br>de handicaps cognitifs</li>
-            </ul>
+        <div>
+            <div id="calendar"></div>
         </div>
-    </div>
 </section>

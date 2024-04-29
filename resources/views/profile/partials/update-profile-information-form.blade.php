@@ -59,18 +59,6 @@
             @endif
         </div>
 
-        <div>
-            <x-input-label for="Exploitation_name" class="text-purple-700" :value="__('Nom de l\'exploitation')" />
-            <x-text-input id="Exploitation_name" name="Exploitation_name" type="text" class="mt-1 block w-full" :value="old('Exploitation_name', $user->Exploitation_name)" required autofocus autocomplete="Exploitation_name" />
-            <x-input-error class="mt-2" :messages="$errors->get('Exploitation_name')" />
-        </div>
-
-        <div>
-            <x-input-label for="SIRET" class="text-purple-700" :value="__('Numéro de SIRET')" />
-            <x-text-input id="SIRET" name="SIRET" type="text" class="mt-1 block w-full" :value="old('SIRET', $user->SIRET)" required autofocus autocomplete="SIRET" />
-            <x-input-error class="mt-2" :messages="$errors->get('SIRET')" />
-        </div>
-
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Sauvegarde') }}</x-primary-button>
 

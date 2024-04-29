@@ -1,3 +1,3 @@
 <footer>
-    Copyright © Terra Douceurs. Tous droits réservés
+    Copyright © Lyon Palme. Tous droits réservés
 </footer>

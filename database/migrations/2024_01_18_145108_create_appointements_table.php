@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean('Validation')->default(false);
             $table->string('Comment')->nullable();
             $table->string('Commentaire')->nullable();
-            $table->foreignId('idusers')->constrained(table: 'users', indexName:'appointements_users_id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('idusers')->nullable()->constrained('users')->index()->onDelete('cascade');
             $table->timestamps();
         });
 
