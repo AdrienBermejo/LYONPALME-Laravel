@@ -61,7 +61,7 @@
 .form-control {
     background-color: #fff;
     border-radius: 1vw; /* Rayon de la bordure */
-    border: 0.2vw solid #DC143C; /* Épaisseur et couleur de la bordure */
+    border: 0.2vw solid #8214dc; /* Épaisseur et couleur de la bordure */
 }
 
 .custom-file-upload {
