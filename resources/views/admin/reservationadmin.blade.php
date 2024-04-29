@@ -2,17 +2,17 @@
     <div class="py-12 h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="text-lg p-7 font-medium text-framboise">
+                <div class="text-lg p-7 font-medium text-purple-700">
                     {{ __("Demande de rendez-vous") }}
                 </div>
                     <div>
                     @if($appointements->isEmpty())
-                        <p class="ps-5 py-5 font-folty text-framboise border-solid mb-4">Aucun rendez-vous à valider</p>
+                        <p class="ps-5 py-5 font-folty text-purple-700 border-solid mb-4">Aucun rendez-vous à valider</p>
                     @else
                         @foreach($appointements as $appointement)
-                            <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise mb-4">
-                                <h1 class="text-framboisehover">{{ optional($appointement->user)->name ?? 'Pas de nom'}} {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}}</h1>
-                                <h1 class="text-framboisehover">Exploitation: {{ optional($appointement->user)->Exploitation_name ?? 'Pas de nom d exploitation' }}</h1>
+                            <div class="ps-5 py-5 font-folty text-purple-700 border-solid border-2 border-purple-700 mb-4">
+                                <h1 class="text-purple-900">{{ optional($appointement->user)->name ?? 'Pas de nom'}} {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}}</h1>
+                                <h1 class="text-purple-900">Exploitation: {{ optional($appointement->user)->Exploitation_name ?? 'Pas de nom d exploitation' }}</h1>
                                 <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
                                 <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
                                 <h2>Téléphone : {{ optional($appointement->user)->telephone ?? 'Pas de téléphone'}} <br> Email : {{ optional($appointement->user)->email ?? 'Pas d email'}}</h2>
@@ -21,8 +21,8 @@
                                     @else
                                         <p>Validation: Non validé</p>
                                 @endif
-                                <p class="text-framboisehover">Commentaire de {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}} : {{ $appointement-> Comment ?? 'Pas encore de commentaire'}}</p>
-                                <p class="text-framboisehover"> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
+                                <p class="text-purple-900">Commentaire de {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}} : {{ $appointement-> Comment ?? 'Pas encore de commentaire'}}</p>
+                                <p class="text-purple-900"> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
                                 
                                 <x-danger-button
                                     x-data=""
@@ -71,11 +71,11 @@
                                             @csrf
                                             @method('delete')
                                             <div class="mb-4">
-                                                <h2 class="text-lg font-medium font-folty text-framboise">
+                                                <h2 class="text-lg font-medium font-folty text-purple-700">
                                                     {{ __('Êtes vous sûr de vouloir supprimer ce rendez-vous ?') }}
                                                 </h2>
 
-                                                <p class="mt-1 text-sm text-framboise">
+                                                <p class="mt-1 text-sm text-purple-700">
                                                     {{ __('Une fois votre rendez-vous supprimé, vous ne pourrez pas le récuperer') }}
                                                 </p>
                                             </div>

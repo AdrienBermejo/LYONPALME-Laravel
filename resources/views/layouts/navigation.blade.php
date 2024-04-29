@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="pt-4">
     <!-- Primary Navigation Menu -->
-    <div class="rounded-full bg-purple-700 border-b border-  -100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-7">
+    <div class="rounded-full bg-purple-600 border-b border-  -100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-7">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -16,7 +16,7 @@
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
-                                <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-framboise hover:text-framboisehover focus:outline-none transition ease-in-out duration-150">
+                                <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-blue-400 hover:text-blue-400hover focus:outline-none transition ease-in-out duration-150">
                                     <div>{{__('Administration')}}</div>
 
                                     <div class="ms-1">
@@ -28,22 +28,22 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('admin.index')" :active="request()->routeIs('/admin')">
+                            <x-dropdown-link class="text-blue-400 hover:text-blue-400hover" :href="route('admin.index')" :active="request()->routeIs('/admin')">
                                 {{ __('Accueil') }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
-                                <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('reservationadmin')" :active="request()->routeIs('/admin')">
+                                <x-dropdown-link class="text-blue-400 hover:text-blue-400hover" :href="route('reservationadmin')" :active="request()->routeIs('/admin')">
                                     {{ __('Réservation') }}
                                 </x-dropdown-link>                        
                         </x-slot>
                             </x-dropdown>
                 </div>
                     @endif
-                    <x-nav-link class="text-framboise hover:text-framboisehover" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
+                    <x-nav-link class="text-blue-400 hover:text-blue-400hover" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link class="text-framboise hover:text-framboisehover" :href="route('reservation')" :active="request()->routeIs('/reservation')">
+                    <x-nav-link class="text-blue-400 hover:text-blue-400hover" :href="route('reservation')" :active="request()->routeIs('/reservation')">
                         {{__('Réservation')}}
                     </x-nav-link>
                 </div>
@@ -53,7 +53,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-framboise hover:text-framboisehover focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-blue-400 hover:text-blue-400hover focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->firstname }} {{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -65,7 +65,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('profile.edit')">
+                        <x-dropdown-link class="text-blue-400 hover:text-blue-400hover" :href="route('profile.edit')">
                             {{ __('Profil') }}
                         </x-dropdown-link>
 
@@ -73,7 +73,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link class="text-framboise hover:text-framboisehover" :href="route('logout')"
+                            <x-dropdown-link class="text-blue-400 hover:text-blue-400hover" :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Déconnexion') }}
@@ -99,7 +99,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-white border-b border-blue-400 rounded-lg">
         <div class="pt-2 pb-3 space-y-1">
         
-            <x-responsive-nav-link class="text-framboise" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
+            <x-responsive-nav-link class="text-blue-400" :href="route('appointements.index')" :active="request()->routeIs('/appointements')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('/reservation')">
@@ -110,7 +110,7 @@
         @if(auth()->user()->is_admin)
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="px-4">
-                    <div class="font-medium text-base text-framboisehover">{{ 'Administration'}}</div>
+                    <div class="font-medium text-base text-blue-400hover">{{ 'Administration'}}</div>
                 </div>
         
                 <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('/admin')">
@@ -127,8 +127,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-blue-400">
             <div class="px-4">
-                <div class="font-medium text-base text-framboisehover">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-framboise">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-blue-400hover">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-blue-400">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">

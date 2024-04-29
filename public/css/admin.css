@@ -51,7 +51,7 @@
 /* Styles pour les titres des blocs */
 .titre_block {
     font-family: folty-bold;
-    color: #DC143C;
+    color: #8214dc;
     font-size: 2.5vw;
     font-weight: lighter;
     margin-top: 0;
@@ -81,15 +81,15 @@
 .admin-block button {
     margin-top: 1vh;
     background-color: transparent;
-    color: #DC143C;
-    border: 0.2vw solid #DC143C;
+    color: #8214dc;
+    border: 0.2vw solid #8214dc;
     border-radius: 2vw; /* Rayon de la bordure */
     padding: 0.5vh 1vw;
     transition: background-color 0.5s ease;
 }
 
 .admin-block button:hover {
-    background-color: #DC143C; 
+    background-color: #8214dc; 
     color: white; 
 }
 
@@ -100,7 +100,7 @@
 
 /* Styles pour les boutons de suppression */
 .admin-block .delete-button {
-    background-color: red;
+    background-color: #8214dc;
     color: white;
     border: none;
     padding: 1vh 2vw;
