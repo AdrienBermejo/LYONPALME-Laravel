@@ -20,7 +20,7 @@
 
     #container {
         height: 100vh;
-        background: url("img/font2.png");
+        background: url("img/Photo\ piscine.jpeg");
         background-position: center;
         background-size: cover;
         padding: 1em 10%;
@@ -68,7 +68,7 @@
     .menu li a {
         text-decoration: none;
         text-transform: capitalize;
-        color: #DC143C;
+        color: #8214dc;
         padding: 0.2em 0;
         position: relative;
     }
@@ -80,7 +80,7 @@
         bottom: 0;
         width: 0;
         height: 0.2em;
-        background: #DC143C;
+        background: #8214dc;
         transition: width 500ms ease;
     }
 
@@ -95,7 +95,7 @@
     }
 
     .auth a {
-        background-color: #DC143C;
+        background-color: #00eeff;
         color: white;
         padding: 10px 20px; 
         border-radius: 25px;
@@ -105,7 +105,7 @@
     }
 
     .auth a:hover {
-        background-color: #99082c;
+        background-color: #8214dc;
         transform: scale(1.1); 
     }
 
@@ -121,7 +121,7 @@
     }
 
     .text-button p {
-        color: #DC143C;
+        color: #8214dc;
         height: 5vh;
         font-size: 35px;
     }
@@ -132,15 +132,15 @@
         font-size: 16px; 
         width: 200px;
         background-color: transparent;
-        color: #DC143C; 
-        border: 2px solid #DC143C; 
+        color: #8214dc; 
+        border: 2px solid #8214dc; 
         border-radius: 25px; 
         transition: background-color 0.5s ease;
     }
 
     .button:hover {
-        background-color: #DC143C; 
-        color: white; 
+        background-color: #8214dc; 
+        color: #00eeff; 
     }
 
     .sticky {
@@ -228,13 +228,13 @@ Produits Slider
 
     .slick-prev {
         left: -5px;
-        color: #DC143C;
+        color: #8214dc;
         z-index: 6;
     }
 
     .slick-next {
         right: -5px; 
-        color: #DC143C;
+        color: #8214dc;
         z-index: 6;
     }
 
@@ -254,7 +254,7 @@ Objectifs
 */
 
     .objectif {
-        background-color: #C51F4A;
+        background-color: #8214dc;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -346,13 +346,13 @@ CoFinanceur
 
 .slick-prev {
     left: -5px;
-    color: #DC143C;
+    color: #8214dc;
     z-index: 6;
 }
 
 .slick-next {
     right: -5px; 
-    color: #DC143C;
+    color: #8214dc;
     z-index: 6;
 }
 
@@ -366,7 +366,7 @@ CoFinanceur
 }
 
 #cofinanceur h1 {
-    color: #DC143C;
+    color: #8214dc;
     text-align: center;
     margin-top: 5vh;
 }
@@ -426,13 +426,13 @@ Partenaires
 
 .slick-prev {
     left: -5px;
-    color: #DC143C;
+    color: #8214dc;
     z-index: 6;
 }
 
 .slick-next {
     right: -5px; 
-    color: #DC143C;
+    color: #8214dc;
     z-index: 6;
 }
 
@@ -446,18 +446,18 @@ Partenaires
 }
 
 #partenaire h1 {
-    color: #DC143C;
+    color: #8214dc;
     text-align: center;
     margin-top: 5vh;
 }
 
 footer {
-    background-color: #DC143C; /* Couleur de fond du footer (à adapter selon vos préférences) */
+    background-color: #00eeff; /* Couleur de fond du footer (à adapter selon vos préférences) */
     text-align: center;
     padding: 10px;
     position: relative;
     bottom: 0;
     width: 100%;
-    border-top: 1px solid #DC143C; /* Ligne de couleur #DC143C en haut du footer */
-    color: #fff; /* Couleur du texte "Copyright" */
+    border-top: 1px solid #8214dc; /* Ligne de couleur #DC143C en haut du footer */
+    color: #8214dc; /* Couleur du texte "Copyright" */
 }

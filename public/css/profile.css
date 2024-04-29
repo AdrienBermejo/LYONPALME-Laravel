@@ -54,7 +54,7 @@ header {
 .menu li a {
     text-decoration: none;
     text-transform: capitalize;
-    color: #DC143C;
+    color: #8214dc;
     padding: 0.2em 0;
     position: relative;
 }
@@ -66,7 +66,7 @@ header {
     bottom: 0;
     width: 0;
     height: 0.2em;
-    background: #DC143C;
+    background: #8214dc;
     transition: width 500ms ease;
 }
 
@@ -81,7 +81,7 @@ header {
 }
 
 .auth a {
-    background-color: #DC143C; /* Couleur framboise */
+    background-color: #8214dc; /* Couleur framboise */
     color: white;
     padding: 10px 20px; /* Ajustez le rembourrage selon vos besoins */
     border-radius: 25px; /* Bords arrondis */
@@ -91,7 +91,7 @@ header {
 }
 
 .auth a:hover {
-    background-color: #99082c; /* Couleur framboise foncée */
+    background-color: #8214dc; /* Couleur framboise foncée */
     transform: scale(1.1); /* Agrandit le bouton de 10% */
 }
 
@@ -107,7 +107,7 @@ header {
 }
 
 .text-button p {
-    color: #DC143C;
+    color: #8214dc;
     height: 5vh;
     font-size: 35px;
 }
@@ -118,14 +118,14 @@ header {
     font-size: 16px; /* Ajustez cette valeur pour modifier la taille du texte */
     width: 200px; /* Ajustez cette valeur pour modifier la largeur du bouton */
     background-color: transparent;
-    color: #DC143C; /* Couleur framboise */
-    border: 2px solid #DC143C; /* Bordure framboise */
+    color: #8214dc; /* Couleur framboise */
+    border: 2px solid #8214dc; /* Bordure framboise */
     border-radius: 25px; /* Bords arrondis */
     transition: background-color 0.5s ease; /* Animation de remplissage */
 }
 
 .button:hover {
-    background-color: #DC143C; /* Remplissage framboise au survol */
+    background-color: #8214dc; /* Remplissage framboise au survol */
     color: white; /* Texte blanc au survol */
 }
 
