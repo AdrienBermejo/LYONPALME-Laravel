@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset ('css/register.css')}}">
     <head>
     <title>Création du compte</title>
-    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('css/img/LogoLPMini.webp') }}" type="image/png">
     </head>
 
         <!-- Name -->

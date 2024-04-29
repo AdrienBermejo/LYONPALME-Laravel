@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Accès Terra Douceurs</title>
-    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+    <title>Accès Lyon Palme</title>
+    <link rel="icon" href="{{ asset('css/img/LogoLPMini.webp') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/accesscode.css') }}">
 </head>
 <body>

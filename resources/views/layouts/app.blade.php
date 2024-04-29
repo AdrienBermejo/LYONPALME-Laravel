@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Terra Douceurs Contact</title>
+        <title>Lyon Palme</title>
 
-        <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+        <link rel="icon" href="{{ asset('css/img/LogoLPMini.webp') }}" type="image/png">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
