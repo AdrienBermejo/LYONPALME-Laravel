@@ -22,8 +22,6 @@ class User extends Authenticatable
         'firstname',
         'telephone',
         'email',
-        'Exploitation_name',
-        'SIRET',
         'password',
     ];
 
