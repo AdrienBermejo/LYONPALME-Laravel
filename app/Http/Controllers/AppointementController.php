@@ -111,7 +111,6 @@ class AppointementController extends Controller
         $appointement->horairedebut = Carbon::parse($request->horairedebut)->toDateTimeString();
         $appointement->horairefin = Carbon::parse($request->horairefin)->toDateTimeString();
         $appointement->Validation = $validation;
-        //$appointement->Comment = $request->input('Comment');
         $appointement->Commentaire = $request->input('Commentaire');
         $appointement->save();
     
@@ -145,11 +144,12 @@ class AppointementController extends Controller
         return redirect()->back()->with('success', 'Rendez-vous supprimé.');
     }
 
-    public function deleteOwner(Appointement $appointment)
-{
-        $appointment->idusers = null;
-        return redirect()->back()->with('success', 'Planning Refusé');
-}
+        public function deleteOwner(UpdateAppointementRequest $request, Appointement $appointment)
+    {
+            $appointment->idusers = null;
+            $appointement->save();
+            return redirect()->back()->with('success', 'Planning Refusé');
+    }
 
 
 }

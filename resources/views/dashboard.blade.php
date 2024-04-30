@@ -3,11 +3,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="text-lg p-7 font-medium text-purle-700">
-                    {{ __("Historique de prise de rendez vous") }}
+                    {{ __("Historique des entrainements") }}
                 </div>
                     <div>
                     @if($appointements->isEmpty())
-                        <p class="ps-5 py-5 font-folty text-purle-700 border-solid mb-4">Vous n'avez pris aucun rendez vous pour le moment</p>
+                        <p class="ps-5 py-5 font-folty text-purle-700 border-solid mb-4">Vous n'avez aucun entrainement pour le moment</p>
                     @else
                         @foreach ($appointements as $appointement)
                             <div class="ps-5 py-5 font-folty text-purle-700 border-solid border-2 border-purle-700 mb-4">
@@ -49,11 +49,10 @@
                                     </form>
                                 </x-modal>
 
-                                @if(!$appointement->Validation)
-                                    <x-danger-button
-                                        x-data=""
-                                        x-on:click.prevent="$dispatch('open-modal', 'appointement-delete-{{ $appointement->id }}')"
-                                    >{{ __('X') }}</x-danger-button>
+                                <x-danger-button
+                                    x-data=""
+                                    x-on:click.prevent="$dispatch('open-modal', 'appointement-delete-{{ $appointement->id }}')"
+                                >{{ __('X') }}</x-danger-button>
 
                                     <x-modal name="appointement-delete-{{ $appointement->id }}" focusable>
                                         <form method="post" action="{{ route('appointements.deleteOwner', $appointement) }}" class="p-6">
@@ -61,16 +60,16 @@
                                             @method('delete')
                                             <div class="mb-4">
                                                 <h2 class="text-lg font-medium font-folty text-purle-700">
-                                                    {{ __('Êtes vous sûr de vouloir supprimer votre rendez-vous ?') }}
+                                                    {{ __('Êtes vous sûr de vouloir refuser l entrainement ?') }}
                                                 </h2>
 
                                                 <p class="mt-1 text-sm text-purle-700">
-                                                    {{ __('Une fois votre rendez-vous supprimé, vous ne pourrez pas le récuperer') }}
+                                                    {{ __('Une fois votre entrainement refusé, vous ne pourrez pas le récuperer') }}
                                                 </p>
                                             </div>
                                             <div class="flex justify-end space-x-10">
                                                 <x-danger-button class="ms-3">
-                                                    {{ __('Supprimer Rendez-vous') }}
+                                                    {{ __('Refuser entrainement') }}
                                                 </x-danger-button>
 
                                                 <x-secondary-button x-on:click="$dispatch('close')">
@@ -79,7 +78,6 @@
                                             </div>
                                         </form>
                                     </x-modal>
-                                @endif
                             </div>
                         @endforeach
                     @endif
