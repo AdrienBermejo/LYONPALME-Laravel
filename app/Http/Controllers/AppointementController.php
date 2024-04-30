@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAppointementRequest;
 use App\Http\Requests\UpdateAppointementRequest;
 use App\Models\Appointement;
 use Carbon\Carbon;
+use App\Http\Controllers\Auth;
 
 class AppointementController extends Controller
 {
@@ -143,6 +144,12 @@ class AppointementController extends Controller
 
         return redirect()->back()->with('success', 'Rendez-vous supprimé.');
     }
+
+    public function deleteOwner(Appointement $appointment)
+{
+        $appointment->idusers = null;
+        return redirect()->back()->with('success', 'Planning Refusé');
+}
 
 
 }

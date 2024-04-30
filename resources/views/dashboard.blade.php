@@ -2,15 +2,15 @@
     <div class="py-12 h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="text-lg p-7 font-medium text-framboise">
+                <div class="text-lg p-7 font-medium text-purle-700">
                     {{ __("Historique de prise de rendez vous") }}
                 </div>
                     <div>
                     @if($appointements->isEmpty())
-                        <p class="ps-5 py-5 font-folty text-framboise border-solid mb-4">Vous n'avez pris aucun rendez vous pour le moment</p>
+                        <p class="ps-5 py-5 font-folty text-purle-700 border-solid mb-4">Vous n'avez pris aucun rendez vous pour le moment</p>
                     @else
                         @foreach ($appointements as $appointement)
-                            <div class="ps-5 py-5 font-folty text-framboise border-solid border-2 border-framboise mb-4">
+                            <div class="ps-5 py-5 font-folty text-purle-700 border-solid border-2 border-purle-700 mb-4">
                                 <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
                                 <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
                                 @if($appointement->Validation)
@@ -56,15 +56,15 @@
                                     >{{ __('X') }}</x-danger-button>
 
                                     <x-modal name="appointement-delete-{{ $appointement->id }}" focusable>
-                                        <form method="post" action="{{ route('appointements.destroy', $appointement) }}" class="p-6">
+                                        <form method="post" action="{{ route('appointements.deleteOwner', $appointement) }}" class="p-6">
                                             @csrf
                                             @method('delete')
                                             <div class="mb-4">
-                                                <h2 class="text-lg font-medium font-folty text-framboise">
+                                                <h2 class="text-lg font-medium font-folty text-purle-700">
                                                     {{ __('Êtes vous sûr de vouloir supprimer votre rendez-vous ?') }}
                                                 </h2>
 
-                                                <p class="mt-1 text-sm text-framboise">
+                                                <p class="mt-1 text-sm text-purle-700">
                                                     {{ __('Une fois votre rendez-vous supprimé, vous ne pourrez pas le récuperer') }}
                                                 </p>
                                             </div>

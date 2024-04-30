@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset ('css/register.css')}}">
     <head>
     <title>Création du compte</title>
-    <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('css/img/LogoLPMini.webp') }}" type="image/png">
     </head>
 
         <!-- Name -->
@@ -31,27 +31,13 @@
                 <x-text-input id="telephone" class="block mt-1 w-full" type="text" name="telephone" :value="old('telephone')" required autofocus autocomplete="telephone" placeholder="Votre Téléphone"/>
                 <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
             </div>
-
+        </div>
+        <div id="Donnees_entreprises">
             <!-- Email Address -->
             <div class="mt-4">
                 <p class="lbl">Email :</p>
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" placeholder="Votre Email" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            </div>
-        </div>
-        <div id="Donnees_entreprises">
-            <!-- Nom Exploitation -->
-            <div class="mt-4">
-                <p class="lbl">Nom de l'exploitation:</p>
-                <x-text-input id="Exploitation_name" class="block mt-1 w-full" type="text" name="Exploitation_name" :value="old('Exploitation_name')" required autofocus autocomplete="Exploitation_name" placeholder="Votre Exploitation"/>
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
-            </div>
-
-            <!-- N° de SIRET -->
-            <div class="mt-4">
-                <p class="lbl">Numéro de SIRET :</p>
-                <x-text-input id="SIRET" class="block mt-1 w-full" type="text" name="SIRET" :value="old('SIRET')" required autofocus autocomplete="SIRET" placeholder="Votre SIRET"/>
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
             <!-- Password -->

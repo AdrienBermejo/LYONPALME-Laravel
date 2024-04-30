@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CofinanceurController;
 use App\Http\Controllers\PartnerController;
+use App\Models\Appointement;
 
 class AccueilController extends Controller
 {
@@ -44,7 +45,23 @@ class AccueilController extends Controller
         // Appel à la méthode index de PartnerController
         $partners = $this->partnerController->index();
 
-        return view('accueil', compact('products', 'cofinanceurs', 'partners'));
+        $events = array();
+        $appointements = Appointement::all();
+        foreach($appointements as $appointement){
+            $color = '#4d7fb0';
+            $title = "Plage horaire déjà prise";
+            $events[] = [
+                'title' => $title,
+                'start' => $appointement->horairedebut,
+                'end' => $appointement->horairefin,
+                'validation' => $appointement->Validation,
+                'userid' => $appointement->idusers,
+                'color'=> $color,
+            ];
+    }
+        //return view('accueil', ['events' => $events]);
+
+        return view('accueil', compact('products', 'cofinanceurs', 'partners','events'));
     }
 
       /**

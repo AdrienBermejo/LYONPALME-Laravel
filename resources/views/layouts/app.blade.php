@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Terra Douceurs Contact</title>
+        <title>Lyon Palme</title>
 
-        <link rel="icon" href="{{ asset('css/img/icon.png') }}" type="image/png">
+        <link rel="icon" href="{{ asset('css/img/LogoLPMini.webp') }}" type="image/png">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,7 +16,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased min-h-screen bg-[url('../../public/css/img/vegetablesbackground.jpg')] bg-cover bg-fixed bg-repeat">
+    <body class="font-sans antialiased min-h-screen bg-[url('../../public/css/img/Piscine3Saint-Fons.jpeg')] bg-cover bg-fixed bg-repeat">
         <div class="min-h-screen">
             @include('layouts.navigation')
 
