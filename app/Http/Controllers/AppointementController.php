@@ -144,9 +144,9 @@ class AppointementController extends Controller
         return redirect()->back()->with('success', 'Rendez-vous supprimé.');
     }
 
-        public function deleteOwner(UpdateAppointementRequest $request, Appointement $appointment)
+        public function deleteOwner(UpdateAppointementRequest $request, Appointement $appointement)
     {
-            $appointment->idusers = null;
+            $appointement->idusers = null;
             $appointement->save();
             return redirect()->back()->with('success', 'Planning Refusé');
     }

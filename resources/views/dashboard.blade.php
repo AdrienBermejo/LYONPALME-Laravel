@@ -19,7 +19,7 @@
                                     <p>Validation: Non validé</p>
                                 @endif
                                 <p> Votre Commentaire : </p>
-                                <p>{{ $appointement-> Comment ?? 'Veuillez renseigner votre demande au plus vite'}}</p>
+                                <p>{{ $appointement-> Comment ?? 'Quel est le contenu de votre entrainement ?'}}</p>
                                 <p> Commentaire du gérant des plannings : </p>
                                 <p>{{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
 
@@ -57,7 +57,7 @@
                                     <x-modal name="appointement-delete-{{ $appointement->id }}" focusable>
                                         <form method="post" action="{{ route('appointements.deleteOwner', $appointement) }}" class="p-6">
                                             @csrf
-                                            @method('delete')
+                                            @method('patch')
                                             <div class="mb-4">
                                                 <h2 class="text-lg font-medium font-folty text-purle-700">
                                                     {{ __('Êtes vous sûr de vouloir refuser l entrainement ?') }}
@@ -68,7 +68,7 @@
                                                 </p>
                                             </div>
                                             <div class="flex justify-end space-x-10">
-                                                <x-danger-button class="ms-3">
+                                                <x-danger-button type="submit" class="ms-3">
                                                     {{ __('Refuser entrainement') }}
                                                 </x-danger-button>
 

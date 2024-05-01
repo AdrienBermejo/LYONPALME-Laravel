@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function() {
     Route::delete('/appointements/{appointement}',[AppointementController::class,'destroy'])->name('appointements.destroy');
     Route::patch('/appointements/{appointement}',[AppointementController::class,'update'])->name('appointements.update');
     Route::patch('/appointements/{appointement}/comment',[AppointementController::class,'updateComment'])->name('appointements.updateComment');
-    Route::delete('/appointements/{appointement}/deleteOwner',[AppointementController::class,'deleteOwner'])->name('appointements.deleteOwner');
+    Route::patch('/appointements/{appointement}/deleteOwner',[AppointementController::class,'deleteOwner'])->name('appointements.deleteOwner');
 });
 
 
