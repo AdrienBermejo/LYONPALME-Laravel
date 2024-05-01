@@ -3,25 +3,24 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="text-lg p-7 font-medium text-purple-700">
-                    {{ __("Demande de rendez-vous") }}
+                    {{ __("Modification d entrainements") }}
                 </div>
                     <div>
                     @if($appointements->isEmpty())
-                        <p class="ps-5 py-5 font-folty text-purple-700 border-solid mb-4">Aucun rendez-vous à valider</p>
+                        <p class="ps-5 py-5 font-folty text-purple-700 border-solid mb-4">Aucun entrainement crée</p>
                     @else
                         @foreach($appointements as $appointement)
                             <div class="ps-5 py-5 font-folty text-purple-700 border-solid border-2 border-purple-700 mb-4">
                                 <h1 class="text-purple-900">{{ optional($appointement->user)->name ?? 'Pas de nom'}} {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}}</h1>
-                                <h1 class="text-purple-900">Exploitation: {{ optional($appointement->user)->Exploitation_name ?? 'Pas de nom d exploitation' }}</h1>
-                                <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
+                                <h2>Entrainement du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
                                 <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
+                                <p class="text-purple-900">Cours de {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}} : {{ $appointement-> Comment ?? 'Pas encore de programme'}}</p>
                                 <h2>Téléphone : {{ optional($appointement->user)->telephone ?? 'Pas de téléphone'}} <br> Email : {{ optional($appointement->user)->email ?? 'Pas d email'}}</h2>
                                 @if($appointement->Validation)
                                     <p>Validation: Validé</p>
                                     @else
                                         <p>Validation: Non validé</p>
                                 @endif
-                                <p class="text-purple-900">Commentaire de {{ optional($appointement->user)->firstname ?? 'Pas de prénom'}} : {{ $appointement-> Comment ?? 'Pas encore de commentaire'}}</p>
                                 <p class="text-purple-900"> Votre Commentaire : {{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
                                 
                                 <x-danger-button
@@ -59,8 +58,6 @@
                                     </form>
                                 </x-modal>
 
-
-                                @if(!$appointement->Validation)
                                     <x-danger-button
                                         x-data=""
                                         x-on:click.prevent="$dispatch('open-modal', 'appointement-delete-{{ $appointement->id }}')"
@@ -90,7 +87,6 @@
                                             </div>
                                         </form>
                                     </x-modal>
-                                @endif
                             </div>
                         @endforeach
                     @endif

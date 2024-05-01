@@ -11,7 +11,7 @@
                     @else
                         @foreach ($appointements as $appointement)
                             <div class="ps-5 py-5 font-folty text-purle-700 border-solid border-2 border-purle-700 mb-4">
-                                <h2>Demande de rendez vous du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
+                                <h2>Entrainement du {{\Carbon\Carbon::parse($appointement->horairedebut)->format('d/m/Y')}}</h2>
                                 <h2> Début à {{ \Carbon\Carbon::parse($appointement ->horairedebut)->format('H:i') }} - Fin à {{ \Carbon\Carbon::parse($appointement-> horairefin)->format('H:i')}} </h2>
                                 @if($appointement->Validation)
                                     <p>Validation: Validé</p>
@@ -20,7 +20,7 @@
                                 @endif
                                 <p> Votre Commentaire : </p>
                                 <p>{{ $appointement-> Comment ?? 'Veuillez renseigner votre demande au plus vite'}}</p>
-                                <p> Commentaire de Terradouceurs : </p>
+                                <p> Commentaire du gérant des plannings : </p>
                                 <p>{{ $appointement-> Commentaire ?? 'Pas encore de commentaire'}}</p>
 
                                 <x-danger-button
