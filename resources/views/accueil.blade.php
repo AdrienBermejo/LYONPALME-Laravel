@@ -45,18 +45,9 @@
 <body>
     <!-- Header -->
     @include('partials.header')
-
-    <!-- Produits Section -->
-    @include('partials.products', ['products' => $products])
-
+    
     <!-- Objectif Section -->
     @include('partials.objectif')
-
-    <!-- Cofinanceur Section -->
-    @include('partials.cofinanceur', ['cofinanceurs' => $cofinanceurs])
-
-    <!-- Partenaire Section -->
-    @include('partials.partenaire', ['partners' => $partners])
 
     @include('partials.footer')
 </html>

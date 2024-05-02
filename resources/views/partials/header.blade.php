@@ -5,11 +5,11 @@
             <img src="{{ asset('css/img/LogoLPMini.webp') }}" alt="Logo1">
         </div>
         <ul class="menu">
-            <li><a href="#">La Conserverie</a></li>
-            <li><a href="#produits">Les Produits</a></li>
-            <li><a href="#pointsvente">Les points de vente</a></li>
-            <li><a href="#journal">Journal Douceur</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#Activites">Activités</a></li>
+            <li><a href="#Agenda">Agenda du club</a></li>
+            <li><a href="#Galerie">Galerie-Le club en photos</a></li>
+            <li><a href="#Autre">Autre</a></li>
         </ul>
     </div>
     <div class="auth">
