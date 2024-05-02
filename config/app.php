@@ -185,6 +185,6 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
-    'access_code' => 'terradouceurs',
+    'access_code' => 'lyonpalme',
 
 ];
