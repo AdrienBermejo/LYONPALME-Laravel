@@ -39,6 +39,9 @@
                                             <x-input-label for="horairefin" :value="__('Horaire de fin:')"/>
                                             <input type="datetime-local" id="horairefin" name="horairefin" value="{{ $appointement->horairefin }}">
 
+                                            <x-input-label for="idusers" :value="__('ID de l entraineur')"/>
+                                            <input type="select" id="idusers" name="idusers" value="{{ $appointement->idusers }}">
+
                                             <x-input-label for="Validation" :value="__('Validation:')"/>
                                             <input type="checkbox" id="Validation" name="Validation" {{ $appointement->Validation ? 'checked' : '' }}>
 

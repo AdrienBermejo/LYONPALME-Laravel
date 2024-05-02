@@ -37,11 +37,11 @@
                                 let formattedHorairefin = horairefin.toLocaleDateString('fr-FR', options);
                                 //Verifie si la date est passé ou non
                                 if(horairedebut<today){return;}
-                                //affiche une alert pour vérifier que l'utilisateur veut prendre rendez-vous
-                                let commentaire = prompt("Veuillez renseigner le motif de votre prise de rendez-vous: ");
-                                let confirmation = confirm("Etes vous sûr de vouloir prendre un rendez-vous du " + formattedHorairedebut + " au "+ formattedHorairefin + " ? Votre motif est celui ci: " + commentaire); 
+                                //affiche une alert pour vérifier que l'utilisateur creer un entrainement
+                                let commentaire = prompt("Veuillez renseigner le message à l'attention de l'entraineur : ");
+                                let confirmation = confirm("Etes vous sûr de mettre un entrainement du " + formattedHorairedebut + " au "+ formattedHorairefin + " ? Votre message est celui ci: " + commentaire); 
                                 if(confirmation) {
-                                    //Formulaire pour prendre le rendez-vous
+                                    //Formulaire pour prendre l entrainement
                                     $.ajax({
                                     url:'/appointements',
                                     type:'POST',
@@ -55,13 +55,13 @@
                                     },
                                     success:function(response){
                                         if(response.success){
-                                            alert("Rendez-vous pris en compte !");
+                                            alert("Entrainement pris en compte !");
                                         } else {
-                                            alert("Erreur, le rendez-vous n'a pas été pris, veuillez réssayer");
+                                            alert("Erreur, l'entrainement n'a pas été pris, veuillez réssayer");
                                         }
                                     },
                                     error:function(response){
-                                        alert("Erreur, le rendez-vous n'a pas été pris, veuillez réssayer");
+                                        alert("Erreur, l'entrainement n'a pas été pris, veuillez réssayer");
                                     }
                                 });
                                 }
